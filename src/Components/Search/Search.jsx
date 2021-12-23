@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./search.css";
 
-function Search() {
+function Search(props) {
   return (
     <div className="'search">
-      <input type="search" placeholder="Search..."></input>
+      <input
+        type="search"
+        placeholder="Search..."
+        onChange={(e) => {
+          props.searchItems(e.target.value);
+        }}
+      ></input>
     </div>
   );
 }

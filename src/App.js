@@ -6,7 +6,9 @@ import SinglePage from "./Pages/SinglePage/SinglePage";
 import ReportPage from "./Pages/ReportPage/ReportPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./app.css";
+
 export const Dino = createContext();
+
 function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
@@ -18,13 +20,13 @@ function App() {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
       .then((res) => setCandidates(res));
-  }, [token]);
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, [token]);
+  }, []);
 
   return (
     <div className=".app">

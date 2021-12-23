@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./card.css";
+import { Cardimg } from "../../Pages/HomePage/HomePage";
 
-function Card(props) {
+function Card() {
+  const x = useContext(Cardimg);
+
   return (
     <div className="singlecard">
-      <img src={props.data.avatar} alt="pic" />
-      <div>{props.data.name}</div>
-      <div>{props.data.email}</div>
+      <img
+        src={`https://randomuser.me/api/portraits/men/${x.i + 19}.jpg`}
+        alt="pic"
+      />
+      <div>{x.e.name}</div>
+      <div>{x.e.email}</div>
     </div>
   );
 }
