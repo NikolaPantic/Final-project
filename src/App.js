@@ -7,12 +7,15 @@ import ReportPage from "./Pages/ReportPage/ReportPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./app.css";
 export const Dino = createContext();
+
+
 function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [token, setToken] = useState(
     sessionStorage.getItem("token") ? sessionStorage.getItem("token") : null
   );
+  const [modal, setModal] = useState(false)
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -29,7 +32,7 @@ function App() {
   return (
     <div className=".app">
       <Switch>
-        <Dino.Provider value={{ token, candidates, setToken }}>
+        <Dino.Provider value={{ modal, token, reports, candidates, setToken, setModal }}>
           <Route exact path="/">
             <HomePage></HomePage>
           </Route>

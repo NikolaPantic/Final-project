@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import "./createreport.css";
 import PhaseOne from "../../Components/PhaseOne/PhaseOne.jsx";
 import PhaseTwo from "../../Components/PhaseTwo/PhaseTwo.jsx";
 import PhaseThree from "../../Components/PhaseThree/PhaseThree.jsx";
 import Header from "../../Components/Header/Header.jsx";
+export const Phasecontext = createContext()
+
 
 function CreateReport() {
+  const [phase, setPhase] = useState('one show')
+
+
+
   useEffect(() => {
     fetch("http://localhost:3333/api/companies")
       .then((res) => res.json())
@@ -30,9 +36,11 @@ function CreateReport() {
           </div>
         </div>
         <div className="create-reports-phases">
-          <PhaseOne></PhaseOne>
-          <PhaseTwo></PhaseTwo>
-          <PhaseThree></PhaseThree>
+          <Phasecontext.Provider value={{ phase, setPhase }}>
+            <PhaseOne ></PhaseOne>
+            <PhaseTwo></PhaseTwo>
+            <PhaseThree></PhaseThree>
+          </Phasecontext.Provider>
         </div>
       </div>
     </div>

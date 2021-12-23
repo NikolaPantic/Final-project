@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
 import "./modal.css";
+import { Dino } from '../../App'
 
 function Modal() {
+
+
+  const info = useContext(Dino)
   return (
-    <div className="modal">
+    <div className={info.modal ? "modal modal-show" : "modal modal-hide"}>
       <div className="modal-heading">
         <h1></h1>
-        <button>x</button>
+        <button onClick={() => info.setModal(false)}>x</button>
       </div>
       <div className="modal-body">
         <div className="modal-data">

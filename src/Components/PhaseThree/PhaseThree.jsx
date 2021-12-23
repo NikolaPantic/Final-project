@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./phasethree.css";
+import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
+
+
 
 function PhaseOne() {
+  const phasecontext = useContext(Phasecontext)
+
   return (
-    <div className="phase-three">
+    <div className={phasecontext.phase === 'three show' ? 'three show' : 'three hide'}>
       <div className="phase-three-select-info">
         <div className="interview-date field">
           <p>Interview date</p>
@@ -37,7 +42,7 @@ function PhaseOne() {
         ></textarea>
       </div>
       <div className="phase-three-buttons">
-        <button>BACK</button>
+        <button onClick={() => phasecontext.setPhase('two show')}>BACK</button>
         <button>SUBMIT</button>
       </div>
     </div>

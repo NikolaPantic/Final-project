@@ -22,3 +22,6 @@
 .modal-notes {
   width: 60%;
 }
+.modal-hide {
+  display: none;
+}
