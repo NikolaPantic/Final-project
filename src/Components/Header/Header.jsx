@@ -13,12 +13,15 @@ function Header() {
   return (
     <div className="header">
       <img className="header-logo" src=""></img>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-      <Link to="/">
-        <button onClick={logout}>Logout</button>
-      </Link>
+      {properties.token === null ? (
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+      ) : (
+        <Link to="/">
+          <button onClick={logout}>Logout</button>
+        </Link>
+      )}
     </div>
   );
 }
