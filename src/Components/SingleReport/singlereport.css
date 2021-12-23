@@ -1,0 +1,13 @@
+.single-report {
+  display: flex;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.single-report-wide-div {
+  width: 35%;
+}
+
+.single-report-narrow-div {
+  width: 10%;
+}

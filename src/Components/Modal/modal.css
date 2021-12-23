@@ -1,0 +1,24 @@
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.modal-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.modal-data {
+  width: 40%;
+}
+
+.modal-data div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modal-notes {
+  width: 60%;
+}

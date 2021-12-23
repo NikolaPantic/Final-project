@@ -1,0 +1,20 @@
+.phase-two {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-end;
+}
+.phase-two-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.company-lists {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.company-name {
+  border: 1px solid black;
+}

@@ -1,0 +1,18 @@
+.person-image-and-data {
+  display: flex;
+  align-items: center;
+}
+
+.person-image {
+  width: 30%;
+}
+
+.person-data {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.person-data-field {
+  width: 50%;
+}

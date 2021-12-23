@@ -1,0 +1,13 @@
+.create-reports-container {
+  display: flex;
+}
+.create-reports-stages-and-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.create-reports-phases {
+  width: 70%;
+}

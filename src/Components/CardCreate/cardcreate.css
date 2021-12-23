@@ -1,0 +1,14 @@
+.card-create {
+  display: flex;
+  border: 1px solid black;
+  width: 45%;
+  margin: 2%;
+}
+
+.card-create-image {
+  width: 20%;
+}
+
+.card-reate-info {
+  width: 80%;
+}

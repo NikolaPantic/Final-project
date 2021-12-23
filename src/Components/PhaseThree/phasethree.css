@@ -1,0 +1,22 @@
+.phase-three {
+  width: 100%;
+}
+
+.text-area {
+  resize: none;
+  width: 100%;
+}
+.phase-three-select-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field {
+  width: 30%;
+}
+
+
+.phase-three-buttons {
+  display: flex;
+  justify-content: space-between;
+}

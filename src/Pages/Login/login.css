@@ -1,0 +1,11 @@
+.loginpage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin: 50px;
+}
+.loginbutton {
+  margin-top: 50px;
+}
