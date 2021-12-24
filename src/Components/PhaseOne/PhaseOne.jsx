@@ -3,17 +3,23 @@ import "./phaseone.css";
 import CardCreate from "../../Components/CardCreate/CardCreate.jsx";
 import Search from "../../Components/Search/Search.jsx";
 import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
+import { Dino } from "../../App"
 
 
 function PhaseOne() {
+
+  const info = useContext(Dino)
+
   const phasecontext = useContext(Phasecontext)
+
+
   return (
     <div className={phasecontext.phase === 'one show' ? 'one show' : 'one hide'}>
       <Search></Search>
       <div className="card-create-wrap">
-        <CardCreate></CardCreate>
+        {info.candidates.map(e => <CardCreate key={e.id} id={e.id} name={e.name} email={e.email}></CardCreate>)}
       </div>
-      <button onClick={() => { phasecontext.setPhase("two show") }}>NEXT</button>
+      <button onClick={() => { phasecontext.namecreate !== '' ? phasecontext.setPhase('two show') : phasecontext.setPhase('one show') }}>NEXT</button>
     </div>
   );
 }

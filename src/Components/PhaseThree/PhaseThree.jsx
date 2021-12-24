@@ -6,13 +6,25 @@ import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
 
 function PhaseOne() {
   const phasecontext = useContext(Phasecontext)
+  let date = new Date()
+  let day = date.getDate()
+  let month = date.getMonth() + 1
+  let year = date.getFullYear()
+
+  date = year + '-' + month + '-' + day
+
+
+
+
+
+
 
   return (
     <div className={phasecontext.phase === 'three show' ? 'three show' : 'three hide'}>
       <div className="phase-three-select-info">
         <div className="interview-date field">
           <p>Interview date</p>
-          <input type="date" required />
+          <input type="date" required max={date} />
         </div>
         <div className="phase field">
           <p>Phase</p>
@@ -30,6 +42,7 @@ function PhaseOne() {
             <option value="Passed">Passed</option>
             <option value="Declined">Declined</option>
           </select>
+          <p>You must select status</p>
         </div>
       </div>
       <div className="phase-notes">

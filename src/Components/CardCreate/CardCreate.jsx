@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./cardcreate.css";
+import { Phasecontext } from "../../Pages/CreateReport/CreateReport.jsx"
 
-function CardCreate() {
+function CardCreate(props) {
+  const info = useContext(Phasecontext)
   return (
-    <div className="card-create">
+    <div className="card-create" onClick={() => {
+      info.setNameCreate(props.name);
+      info.setIDCreate(props.id)
+    }}>
+
       <div className="card-create-image">
         <img></img>
       </div>
       <div className="card-create-info">
-        <h4>blaaaa</h4>
-        <p>njaaaa</p>
+        <h4>{props.name}</h4>
+        <p>{props.email.toLowerCase()}</p>
       </div>
     </div>
   );

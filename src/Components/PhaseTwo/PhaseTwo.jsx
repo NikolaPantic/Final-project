@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./phasetwo.css";
 import Search from "../../Components/Search/Search.jsx";
 import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
@@ -7,19 +7,32 @@ import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
 
 function PhaseTwo() {
   const phasecontext = useContext(Phasecontext)
+  const [companies, setCompanies] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:3333/api/companies")
+      .then((res) => res.json())
+      .then((res) => setCompanies(res));
+  }, []);
+
+
   return (
     <div className={phasecontext.phase === 'two show' ? 'two show' : 'two hide'}>
       <Search></Search>
       <div className="company-lists">
-        <h3 className="company-name">BIT</h3>
-        <h3 className="company-name">BIT</h3>
-        <h3 className="company-name">BIT</h3>
-        <h3 className="company-name">BIT</h3>
-        <h3 className="company-name">BIT</h3>
+
+        {companies.map(e => <h3 className="company-name" onClick={() => {
+          phasecontext.setCompanyName(e.name)
+          phasecontext.setCompanyID(e.id)
+        }}>{e.name}</h3>)}
+
+
       </div>
       <div className="phase-two-buttons">
         <button onClick={() => phasecontext.setPhase('one show')}>BACK</button>
-        <button onClick={() => phasecontext.setPhase('three show')}>NEXT</button>
+        <button onClick={() => phasecontext.companyname !== '' ? phasecontext.setPhase('three show') : phasecontext.setPhase('two show')}
+
+        >NEXT</button>
       </div>
     </div>
   );

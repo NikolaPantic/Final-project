@@ -9,14 +9,14 @@ export const Phasecontext = createContext()
 
 function CreateReport() {
   const [phase, setPhase] = useState('one show')
+  const [namecreate, setNameCreate] = useState('')
+  const [companyname, setCompanyName] = useState('')
+  const [idcreate, setIDCreate] = useState(null)
+  const [companyID, setCompanyID] = useState(null)
 
 
 
-  useEffect(() => {
-    fetch("http://localhost:3333/api/companies")
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-  }, []);
+
 
   return (
     <div className="create-reports">
@@ -29,14 +29,14 @@ function CreateReport() {
             <h3>3 Fill Report Details</h3>
           </div>
           <div className="create-reports-info">
-            <p>Candidate:</p>
-            <h3></h3>
-            <p>Company:</p>
-            <h3></h3>
+            <p>{phase !== 'one show' ? 'Candidate:' : ''} </p>
+            <h3>{phase !== "one show" ? namecreate : ''}</h3>
+            <p>{phase === "three show" ? 'Company name:' : ''}</p>
+            <h3>{phase === "three show" ? companyname : ''}</h3>
           </div>
         </div>
         <div className="create-reports-phases">
-          <Phasecontext.Provider value={{ phase, setPhase }}>
+          <Phasecontext.Provider value={{ phase, setIDCreate, setCompanyID, setPhase, setNameCreate, namecreate, setCompanyName, companyname }}>
             <PhaseOne ></PhaseOne>
             <PhaseTwo></PhaseTwo>
             <PhaseThree></PhaseThree>
