@@ -15,11 +15,22 @@ function App() {
   const [token, setToken] = useState(
     sessionStorage.getItem("token") ? sessionStorage.getItem("token") : null
   );
+  const [modal, setModal] = useState(false);
+  const [singleCandidate, setSingleCandidate] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
-      .then((res) => setCandidates(res));
+      .then((res) =>
+        setCandidates(
+          res.map((e, i) => {
+            return {
+              ...e,
+              avatar: `https://randomuser.me/api/portraits/men/${i + 19}.jpg`,
+            };
+          })
+        )
+      );
   }, []);
 
   useEffect(() => {
@@ -31,9 +42,9 @@ function App() {
   return (
     <div className=".app">
       <Switch>
-        <Dino.Provider value={{ token, candidates, setToken }}>
+        <Dino.Provider value={{ reports, token, candidates, setToken }}>
           <Route exact path="/">
-            <HomePage></HomePage>
+            <HomePage singleCandidate={setSingleCandidate}></HomePage>
           </Route>
 
           <Route path="/login">
@@ -47,7 +58,7 @@ function App() {
           </Route>
 
           <Route path="/candidate/:id">
-            <SinglePage></SinglePage>
+            <SinglePage reports={reports}></SinglePage>
           </Route>
 
           <Route path="/createreport">

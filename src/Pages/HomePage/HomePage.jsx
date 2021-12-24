@@ -19,10 +19,6 @@ function HomePage() {
 
   useEffect(() => setFilteredCandidates(x.candidates), [x.candidates]);
 
-  const searchResult = filteredCandidates.map((e) => e.name.toLowerCase());
-
-  console.log(searchResult.filter((e) => e.includes(searchInput)));
-
   return (
     <div className="home-page">
       <Header></Header>
@@ -35,17 +31,27 @@ function HomePage() {
           ></Search>
         </div>
         <div className="card-wrapper">
-          {filteredCandidates.map((e, i) => (
-            <Cardimg.Provider value={{ i, e }}>
-              <Link
-                key={e.id}
-                className="single-card-link"
-                to={`/candidate/${e.id}`}
-              >
-                <Card></Card>
-              </Link>
-            </Cardimg.Provider>
-          ))}
+          {filteredCandidates
+            .filter((e) => {
+              if (searchInput === "") {
+                return e;
+              } else if (
+                e.name.toLowerCase().includes(searchInput.toLocaleLowerCase())
+              ) {
+                return e;
+              }
+            })
+            .map((e, i) => (
+              <Cardimg.Provider value={{ i, e }}>
+                <Link
+                  key={e.id}
+                  className="single-card-link"
+                  to={`/candidate/${e.id}`}
+                >
+                  <Card img={e.avatar}></Card>
+                </Link>
+              </Cardimg.Provider>
+            ))}
         </div>
       </div>
     </div>
