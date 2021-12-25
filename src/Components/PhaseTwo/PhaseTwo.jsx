@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./phasetwo.css";
-import Search from "../../Components/Search/Search.jsx";
 import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
+import Search from "../../Components/Search/Search.jsx";
+import "./phasetwo.css";
 
 
 
@@ -21,7 +21,7 @@ function PhaseTwo() {
       <Search></Search>
       <div className="company-lists">
 
-        {companies.map(e => <h3 className="company-name" onClick={() => {
+        {companies.map(e => <h3 className="company-name" key ={e.id} onClick={() => {
           phasecontext.setCompanyName(e.name)
           phasecontext.setCompanyID(e.id)
         }}>{e.name}</h3>)}

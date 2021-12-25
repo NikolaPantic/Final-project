@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./phasethree.css";
 import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
+import {Dino} from '../../App'
 
 
-
-function PhaseOne() {
+function PhaseThree() {
+  const dino=useContext(Dino)
   const phasecontext = useContext(Phasecontext)
   let date = new Date()
   let day = date.getDate()
@@ -14,9 +15,40 @@ function PhaseOne() {
   date = year + '-' + month + '-' + day
 
 
+const[message, setMessage]=useState(false)
+  const [interviewdate, setInterviewDate]=useState('')
+  const [interviewphase, setInterviewPhase]=useState('CV')
+  const [status,setStatus]=useState('Select')
+const [notes, setNotes]=useState('')
 
 
+const setNewReport=()=>{
 
+if(interviewdate!=='' && status!=='select' && notes!==''){
+
+fetch('http://localhost:3333/api/reports',{
+method:'PUT',
+headers: { 'Content-Type': 'application/json',
+Authorization: `Bearer <${dino.token}>` },
+body: JSON.stringify({
+  candidateId: phasecontext.idcreate,
+  candidateName: phasecontext.namecreate,
+  companyId: phasecontext.companyID,
+  companyName: phasecontext.companyname,
+  interviewDate: interviewdate,
+  phase: interviewphase,
+  status: status,
+  note: notes
+})
+
+
+})
+
+}
+
+else setMessage(true)
+
+}
 
 
   return (
@@ -24,11 +56,11 @@ function PhaseOne() {
       <div className="phase-three-select-info">
         <div className="interview-date field">
           <p>Interview date</p>
-          <input type="date" required max={date} />
+          <input type="date" required max={date} onChange={(e)=>setInterviewDate(e.target.value)}/>
         </div>
         <div className="phase field">
           <p>Phase</p>
-          <select name="phase" className="select-phase " required>
+          <select name="phase" className="select-phase " required onChange={(e)=>setInterviewPhase(e.target.value)}>
             <option value="CV">CV</option>
             <option value="HR">HR</option>
             <option value="Technical">Technical</option>
@@ -37,12 +69,13 @@ function PhaseOne() {
         </div>
         <div className="status field">
           <p>Status</p>
-          <select name="status" className="select-status " required>
-            <option value="">Select</option>
+          <select name="status" className="select-status " required onChange={(e)=>setStatus(e.target.value)}>
+            <option value="Select">Select</option>
             <option value="Passed">Passed</option>
             <option value="Declined">Declined</option>
           </select>
-          <p>You must select status</p>
+
+       
         </div>
       </div>
       <div className="phase-notes">
@@ -51,15 +84,17 @@ function PhaseOne() {
           name="Notes"
           rows="10"
           className="text-area"
-          required
+          required onChange={(e)=>setNotes(e.target.value)}
         ></textarea>
+
+        <p className="login-message">{message?'All fields are required!':''}</p>
       </div>
       <div className="phase-three-buttons">
         <button onClick={() => phasecontext.setPhase('two show')}>BACK</button>
-        <button>SUBMIT</button>
+        <button onClick={setNewReport}>SUBMIT</button>
       </div>
     </div>
   );
 }
 
-export default PhaseOne;
+export default PhaseThree;

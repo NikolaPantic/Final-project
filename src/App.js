@@ -13,9 +13,12 @@ function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [token, setToken] = useState(
-    sessionStorage.getItem("token") ? sessionStorage.getItem("token") : null
+    sessionStorage.getItem("token")!=='undefined' ? sessionStorage.getItem("token") : null
   );
   const [modal, setModal] = useState(false)
+const [modalperson, setModalPerson]=useState('')
+const [reportinfo, setReportInfo]=useState({})
+
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -32,7 +35,7 @@ function App() {
   return (
     <div className=".app">
       <Switch>
-        <Dino.Provider value={{ modal, token, reports, candidates, setToken, setModal }}>
+        <Dino.Provider value={{ modal, reportinfo, modalperson, token, reports, candidates, setModalPerson, setReportInfo, setToken, setModal }}>
           <Route exact path="/">
             <HomePage></HomePage>
           </Route>

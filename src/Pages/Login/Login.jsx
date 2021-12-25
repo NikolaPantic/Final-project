@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, {useState, useContext } from "react";
+import { Link} from "react-router-dom";
 import "./login.css";
 import { Dino } from "../../App";
 
@@ -7,6 +7,18 @@ function Login() {
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
   const x = useContext(Dino);
+const[response, setResponse]=useState('')
+
+const showMessage=()=>{
+
+sessionStorage.setItem('token', response.accessToken)
+
+sessionStorage.getItem("token") === "undefined"
+ ? x.setToken(null) : x.setToken(sessionStorage.getItem("token"));
+
+
+}
+
 
   const loginButton = () => {
     fetch(`http://localhost:3333/login`, {
@@ -18,15 +30,14 @@ function Login() {
       }),
     })
       .then((res) => res.json())
-      .then((res) => sessionStorage.setItem("token", res.accessToken))
-      .then(() => {
-        sessionStorage.getItem("token") === "undefined"
-          ? x.setToken(null)
-          : x.setToken(sessionStorage.getItem("token"));
-      })
-      .catch((e) => { 
-        console.log(e.message);
-      });
+      .then(res=>setResponse(res))
+      // .then((res) => sessionStorage.setItem("token", res.accessToken))
+      // .then(() => {
+      //   sessionStorage.getItem("token") === "undefined"
+      //   ? x.setToken(null)
+      //   : x.setToken(sessionStorage.getItem("token"));
+      // })
+      
   };
 
   return (
@@ -39,7 +50,10 @@ function Login() {
           setUseremail(u.target.value);
         }}
       />
-      <p>Password</p>
+<p className="login-message">{response==="Cannot find user"?response:''}
+{response==="Email format is invalid"? response:''}</p>
+
+      <p >Password</p>
       <input
         type="password"
         name=""
@@ -50,7 +64,12 @@ function Login() {
         }}
       />
 
-      <button className="loginbutton" onClick={loginButton}>
+      <p className="login-message">{response==="Incorrect password"? response:''}
+      {response==="Email and password are required"?response:''}
+      {response==="Password is too short"?response:''}</p>
+
+      <button className="loginbutton" onClick={()=>{loginButton(); 
+        showMessage()}}>
         LOG IN
       </button>
       <Link to="/">

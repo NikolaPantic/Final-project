@@ -17,7 +17,7 @@ function SingleReport(props) {
         <h3>{props.e.candidateName}</h3>
         <p>Candidate</p>
       </div>
-      <div className="single-report-narrow-div">
+      <div className="single-report-narrow-div report-date">
         <h3>{date.toLocaleDateString('en-UK').split('/').join('.')}</h3>
         <p>Interview date</p>
       </div>
@@ -25,9 +25,9 @@ function SingleReport(props) {
         <h3>{props.e.status}</h3>
         <p>Status</p>
       </div>
-      <div className="single-report-narrow-div">
-        <button onClick={() => info.setModal(true)}>eye</button>
-        <button >X</button>
+      <div className="single-report-narrow-div single-report-buttons">
+        <button className="single-report-button" onClick={() => {info.setModal(true); info.setReportInfo(props.e)}}>eye</button>
+        <button className="single-report-button" onClick={()=>props.showDeleteModal(true)}>X</button>
       </div>
     </div>
   );
