@@ -42,19 +42,24 @@ sessionStorage.getItem("token") === "undefined"
 
   return (
     <div className="loginpage">
+
+      <div className="login-content">
+      <div className="login-field">
       <p>Username</p>
-      <input
+      <input className="login-input"
         type="text"
         placeholder="Username"
         onChange={(u) => {
           setUseremail(u.target.value);
         }}
       />
+</div>
 <p className="login-message">{response==="Cannot find user"?response:''}
 {response==="Email format is invalid"? response:''}</p>
-
+      
+      <div className="login-field">
       <p >Password</p>
-      <input
+      <input className="login-input"
         type="password"
         name=""
         id=""
@@ -64,17 +69,22 @@ sessionStorage.getItem("token") === "undefined"
         }}
       />
 
+      </div>
       <p className="login-message">{response==="Incorrect password"? response:''}
       {response==="Email and password are required"?response:''}
       {response==="Password is too short"?response:''}</p>
 
-      <button className="loginbutton" onClick={()=>{loginButton(); 
+      
+      <div className="login-buttons">
+      <button className="login-button" onClick={()=>{loginButton(); 
         showMessage()}}>
         LOG IN
       </button>
       <Link to="/">
-        <button className="back">BACK</button>
+        <button className="login-button">BACK</button>
       </Link>
+      </div>
+      </div>
     </div>
   );
 }

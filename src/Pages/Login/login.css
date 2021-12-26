@@ -1,16 +1,46 @@
 .loginpage {
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 80vh;
+
+  
+}
+
+
+.login-content{
+  display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 20px;
-  margin: 50px;
-  position:relative;
+height:30%;
+  
 }
-.loginbutton {
-  margin-top: 50px;
-}
+
 
 .login-message{
   color:red;
+  font-size: 130%;
+}
+
+
+.login-field{
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+text-align: center;
+font-size: 200%;
+
+}
+
+.login-input{
+
+height:30px;
+
+}
+
+.login-button{
+
+ padding: 10px 15px;
 }

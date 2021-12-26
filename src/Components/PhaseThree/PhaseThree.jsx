@@ -27,8 +27,8 @@ const setNewReport=()=>{
 if(interviewdate!=='' && status!=='select' && notes!==''){
 
 fetch('http://localhost:3333/api/reports',{
-method:'PUT',
-headers: { 'Content-Type': 'application/json',
+method:'POST',
+headers: { 'Content-Type': 'db/db.json',
 Authorization: `Bearer <${dino.token}>` },
 body: JSON.stringify({
   candidateId: phasecontext.idcreate,
