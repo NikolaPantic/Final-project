@@ -23,29 +23,28 @@ function ReportPage() {
           <div className="delete-buttons">
             <button
               onClick={() => {
-                fetch("http://localhost:3333/api/reports", {
+                fetch(`http://localhost:3333/api/reports/${info.reportid}`, {
                   method: "DELETE",
                   headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${info.token}`,
                   },
-                  body: JSON.stringify({
-                    candidateId: info.idcreate,
-                    candidateName: info.namecreate,
-                    companyId: info.companyID,
-                    companyName: info.companyname,
-                    interviewDate: info.interviewdate,
-                    phase: info.phase,
-                    status: info.status,
-                    note: info.notes,
-                  }),
+                }).then(() => {
+                  info.setReports(info.reports);
                 });
+                showDeleteModal(false);
               }}
             >
               YES
             </button>
-            <button onClick={() => showDeleteModal(false)}>NO</button>
+            <button
+              onClick={() => {
+                showDeleteModal(false);
+              }}
+            >
+              NO
+            </button>
           </div>
         </div>
       </div>

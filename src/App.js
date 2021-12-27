@@ -23,11 +23,12 @@ function App() {
   const [namecreate, setNameCreate] = useState("");
   const [idcreate, setIDCreate] = useState(null);
   const [companyname, setCompanyName] = useState("");
-  const [companyID, setCompanyID] = useState(0);
+  const [companyID, setCompanyID] = useState(null);
   const [interviewdate, setInterviewDate] = useState("");
   const [interviewphase, setInterviewPhase] = useState("CV");
   const [status, setStatus] = useState("Select");
   const [notes, setNotes] = useState("");
+  const [reportid, setReportID] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -39,7 +40,7 @@ function App() {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, []);
+  }, [reports]);
 
   return (
     <div className="app">
@@ -60,6 +61,7 @@ function App() {
             companyname,
             namecreate,
             idcreate,
+            reportid,
             setNameCreate,
             setIDCreate,
             setCompanyID,
@@ -72,6 +74,7 @@ function App() {
             setReportInfo,
             setToken,
             setModal,
+            setReportID,
           }}
         >
           <Route exact path="/">

@@ -5,17 +5,6 @@ import { Dino } from "../../App";
 function SingleReport(props) {
   const info = useContext(Dino);
 
-  const setAllStates = () => {
-    info.setNameCreate(props.e.candidateName);
-    info.setIDCreate(props.e.candidateId);
-    info.setCompanyName(props.e.companyName);
-    info.setCompanyID(props.e.companyId);
-    info.setInterviewDate(props.e.interviewDate);
-    info.setInterviewPhase(props.e.phase);
-    info.setStatus(props.e.status);
-    info.setNotes(props.e.note);
-  };
-
   return (
     <div className="single-report">
       <div className="single-report-wide-div">
@@ -53,7 +42,7 @@ function SingleReport(props) {
           className="single-report-button"
           onClick={() => {
             props.showDeleteModal(true);
-            setAllStates();
+            info.setReportID(props.e.id);
           }}
         >
           X
