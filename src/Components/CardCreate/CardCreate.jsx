@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
 import "./cardcreate.css";
-import { Phasecontext } from "../../Pages/CreateReport/CreateReport.jsx"
+import { Dino } from "../../App";
 
 function CardCreate(props) {
-  const info = useContext(Phasecontext)
+  const dino = useContext(Dino);
   return (
-    <div className="card-create" onClick={() => {
-      info.setNameCreate(props.name);
-      info.setIDCreate(props.id)
-    }}>
-
+    <div
+      className="card-create"
+      onClick={() => {
+        dino.setNameCreate(props.name);
+        dino.setIDCreate(props.id);
+      }}
+    >
       <div className="card-create-image">
         <img></img>
       </div>

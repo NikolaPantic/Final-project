@@ -8,34 +8,72 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import "./app.css";
 export const Dino = createContext();
 
-
 function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [token, setToken] = useState(
-    sessionStorage.getItem("token")!=='undefined' ? sessionStorage.getItem("token") : null
+    sessionStorage.getItem("token") !== "undefined"
+      ? sessionStorage.getItem("token")
+      : null
   );
-  const [modal, setModal] = useState(false)
-const [modalperson, setModalPerson]=useState('')
-const [reportinfo, setReportInfo]=useState({})
+  const [modal, setModal] = useState(false);
+  const [modalperson, setModalPerson] = useState("");
+  const [reportinfo, setReportInfo] = useState({});
 
+  const [namecreate, setNameCreate] = useState("");
+  const [idcreate, setIDCreate] = useState(null);
+  const [companyname, setCompanyName] = useState("");
+  const [companyID, setCompanyID] = useState(0);
+  const [interviewdate, setInterviewDate] = useState("");
+  const [interviewphase, setInterviewPhase] = useState("CV");
+  const [status, setStatus] = useState("Select");
+  const [notes, setNotes] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
       .then((res) => setCandidates(res));
-  }, [token]);
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, [token]);
+  }, []);
 
   return (
-    <div className=".app">
+    <div className="app">
       <Switch>
-        <Dino.Provider value={{ modal, reportinfo, modalperson, token, reports, candidates, setModalPerson, setReportInfo, setToken, setModal }}>
+        <Dino.Provider
+          value={{
+            modal,
+            reportinfo,
+            modalperson,
+            token,
+            reports,
+            candidates,
+            interviewdate,
+            interviewphase,
+            status,
+            notes,
+            companyID,
+            companyname,
+            namecreate,
+            idcreate,
+            setNameCreate,
+            setIDCreate,
+            setCompanyID,
+            setCompanyName,
+            setInterviewDate,
+            setInterviewPhase,
+            setStatus,
+            setNotes,
+            setModalPerson,
+            setReportInfo,
+            setToken,
+            setModal,
+          }}
+        >
           <Route exact path="/">
             <HomePage></HomePage>
           </Route>

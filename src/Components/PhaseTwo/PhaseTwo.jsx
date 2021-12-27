@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Phasecontext } from '../../Pages/CreateReport/CreateReport.jsx'
+import { Dino } from "../../App";
 import Search from "../../Components/Search/Search.jsx";
 import "./phasetwo.css";
 
-
-
-function PhaseTwo() {
-  const phasecontext = useContext(Phasecontext)
-  const [companies, setCompanies] = useState([])
+function PhaseTwo(props) {
+  const dino = useContext(Dino);
+  const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/companies")
@@ -15,24 +13,34 @@ function PhaseTwo() {
       .then((res) => setCompanies(res));
   }, []);
 
-
   return (
-    <div className={phasecontext.phase === 'two show' ? 'two show' : 'two hide'}>
+    <div className={props.phase === "two show" ? "two show" : "two hide"}>
       <Search></Search>
       <div className="company-lists">
-
-        {companies.map(e => <h3 className="company-name" key ={e.id} onClick={() => {
-          phasecontext.setCompanyName(e.name)
-          phasecontext.setCompanyID(e.id)
-        }}>{e.name}</h3>)}
-
-
+        {companies.map((e) => (
+          <h3
+            className="company-name"
+            key={e.id}
+            onClick={() => {
+              dino.setCompanyName(e.name);
+              dino.setCompanyID(e.id);
+            }}
+          >
+            {e.name}
+          </h3>
+        ))}
       </div>
       <div className="phase-two-buttons">
-        <button onClick={() => phasecontext.setPhase('one show')}>BACK</button>
-        <button onClick={() => phasecontext.companyname !== '' ? phasecontext.setPhase('three show') : phasecontext.setPhase('two show')}
-
-        >NEXT</button>
+        <button onClick={() => props.setPhase("one show")}>BACK</button>
+        <button
+          onClick={() =>
+            dino.companyname !== ""
+              ? props.setPhase("three show")
+              : props.setPhase("two show")
+          }
+        >
+          NEXT
+        </button>
       </div>
     </div>
   );
