@@ -13,7 +13,11 @@ function CardCreate(props) {
       }}
     >
       <div className="card-create-image">
-        <img></img>
+        <img
+          className="card-create-img"
+          alt="candidate"
+          src={props.avatar}
+        ></img>
       </div>
       <div className="card-create-info">
         <h4>{props.name}</h4>

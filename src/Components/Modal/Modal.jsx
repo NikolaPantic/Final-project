@@ -7,7 +7,7 @@ function Modal() {
 
   const info = useContext(Dino)
   return (
-    <div className={info.modal ? "modal modal-show" : "modal modal-hide"}>
+    <div className={info.modal? "modal modal-show" : "modal modal-hide"}>
      <div className="modal-content">
       <div className="modal-heading">
         <h2>{info.reportinfo.candidateName}</h2>

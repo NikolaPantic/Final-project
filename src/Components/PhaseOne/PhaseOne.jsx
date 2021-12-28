@@ -27,6 +27,7 @@ function PhaseOne(props) {
             <CardCreate
               key={e.id}
               id={e.id}
+              avatar={e.avatar}
               name={e.name}
               setNameCreate={props.setNameCreate}
               email={e.email}

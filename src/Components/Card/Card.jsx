@@ -6,17 +6,9 @@ function Card(props) {
   const x = useContext(Dino);
 
   return (
-    <div
-      onClick={() => {
-        x.setSinglePerson(props.e.id);
-        x.setSingleCandidateReports(
-          x.reports.filter((e) => e.candidateId === props.e.id)
-        );
-      }}
-      className="singlecard"
-    >
+    <div className="singlecard">
       <div className="card-image-div">
-        <img src={props.e.avatar} alt="" />
+        <img src={props.e.avatar} alt="candidate" />
       </div>
       <div className="card-name">{props.e.name}</div>
       <div className="card-email">{props.e.email.toLowerCase()}</div>

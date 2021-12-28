@@ -17,11 +17,15 @@ function App() {
       : null
   );
   const [modal, setModal] = useState(false);
-  const [modalperson, setModalPerson] = useState("");
   const [reportinfo, setReportInfo] = useState({});
-  const [reportid, setReportID] = useState(null);
+
   const [searchInput, setSearchinput] = useState("");
+
+  const [modalperson, setModalPerson] = useState("");
+  const [reportid, setReportID] = useState(null);
   const [isValid, setIsValid] = useState(true);
+  
+
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")

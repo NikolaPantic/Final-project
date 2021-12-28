@@ -37,7 +37,7 @@ function SinglePage(props) {
                 <img
                   className="person-image"
                   src={singleCandidate.avatar}
-                  alt=""
+                  alt="candidate"
                 />
               </div>
               <div className="person-data">
@@ -76,23 +76,23 @@ function SinglePage(props) {
                 <table>
                   <tr>
                     <th
-                      onClick={() => {
-                        candReport.sort();
-                      }}
+                    // onClick={() => {
+                    //   candReport.sort();
+                    // }}
                     >
                       Company
                     </th>
                     <th
-                      onClick={() => {
-                        candReport.sort();
-                      }}
+                    // onClick={() => {
+                    //   candReport.sort();
+                    // }}
                     >
                       Interview Date
                     </th>
                     <th
-                      onClick={() => {
-                        candReport.sort();
-                      }}
+                    // onClick={() => {
+                    //   candReport.sort();
+                    // }}
                     >
                       Status
                     </th>
