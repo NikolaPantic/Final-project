@@ -20,11 +20,23 @@ function App() {
   const [modalperson, setModalPerson] = useState("");
   const [reportinfo, setReportInfo] = useState({});
   const [reportid, setReportID] = useState(null);
+  const [singleperson, setSinglePerson] = useState("");
+  const [singlecandidatereports, setSingleCandidateReports] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
-      .then((res) => setCandidates(res));
+      .then((res) =>
+        setCandidates(
+          res.map((e, i) => {
+            return {
+              ...e,
+              avatar: `https://randomuser.me/api/portraits/women/${i + 25}.jpg`,
+            };
+          })
+        )
+      );
   }, []);
 
   useEffect(() => {
@@ -32,6 +44,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => setReports(res));
   }, [reports]);
+
 
   return (
     <div className="app">

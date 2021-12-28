@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Dino } from "../../App";
 import "./card.css";
 
 function Card(props) {
+  const x = useContext(Dino);
+
   return (
-    <div className="singlecard">
-      <img src={props.data.avatar} alt="pic" />
-      <div>{props.data.name}</div>
-      <div>{props.data.email}</div>
+    <div
+      onClick={() => {
+        x.setSinglePerson(props.e.id);
+        x.setSingleCandidateReports(
+          x.reports.filter((e) => e.candidateId === props.e.id)
+        );
+      }}
+      className="singlecard"
+    >
+      <div className="card-image-div">
+        <img src={props.e.avatar} alt="" />
+      </div>
+      <div className="card-name">{props.e.name}</div>
+      <div className="card-email">{props.e.email.toLowerCase()}</div>
     </div>
   );
 }

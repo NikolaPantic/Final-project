@@ -1,18 +1,99 @@
+.single-page-container {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px 0;
+  border-top: 1px solid grey;
+}
+
 .person-image-and-data {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.person-image-div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .person-image {
-  width: 30%;
+  width: 110%;
 }
 
 .person-data {
   display: flex;
   flex-wrap: wrap;
   width: 70%;
+  height: 100%;
 }
 
 .person-data-field {
   width: 50%;
+  height: 48%;
+  margin-top: 2%;
+}
+.single-person-heading {
+  display: flex;
+  align-items: center;
+  font-size: 130%;
+  height: 25%;
+  padding: 20px;
+}
+
+.single-person-data {
+  height: 75%;
+  margin-left: 30px;
+}
+
+.person-report {
+  margin-top: 50px;
+}
+
+table {
+  margin-top: 50px;
+  width: 100%;
+  border: 1px solid grey;
+  border-spacing: 0;
+  overflow-y: scroll;
+}
+
+th {
+  text-align: left;
+  font-size: 130%;
+  border: 1px solid grey;
+  height: 50px;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.4);
+}
+tr {
+  border: 1px solid grey;
+  height: 30px;
+}
+td {
+  font-size: 120%;
+  border: 1px solid grey;
+  margin: 0;
+  height: 30px;
+  padding: 10px;
+}
+
+.statuses {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.alert-message {
+  font-size: 180%;
+  color: red;
+  margin-top: 50px;
 }
