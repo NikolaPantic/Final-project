@@ -53,12 +53,6 @@ function PhaseThree(props) {
     } else setMessage(true);
   };
 
-  const setErrorMessage = () => {
-    if (interviewdate === "" || status === "Select" || notes === "")
-      setMessage(true);
-    else setMessage(false);
-  };
-
   return (
     <div className={props.phase === "three show" ? "three show" : "three hide"}>
       <div className="phase-three-select-info">
@@ -70,7 +64,7 @@ function PhaseThree(props) {
             max={date}
             onChange={(e) => {
               setInterviewDate(e.target.value);
-              setErrorMessage();
+              setMessage(false);
             }}
           />
         </div>
@@ -96,7 +90,7 @@ function PhaseThree(props) {
             required
             onChange={(e) => {
               setStatus(e.target.value);
-              setErrorMessage();
+              setMessage(false);
             }}
           >
             <option value="Select">Select</option>
@@ -114,7 +108,7 @@ function PhaseThree(props) {
           required
           onChange={(e) => {
             setNotes(e.target.value);
-            setErrorMessage();
+            setMessage(false);
           }}
         ></textarea>
 
@@ -127,6 +121,11 @@ function PhaseThree(props) {
           onClick={() => {
             props.setPhase("two show");
             props.setCompanyName("");
+            setInterviewDate("");
+            setInterviewPhase("CV");
+            setStatus("Select");
+            setNotes("");
+            
           }}
         >
           BACK
@@ -134,7 +133,6 @@ function PhaseThree(props) {
         <button
           onClick={() => {
             setNewReport();
-            setErrorMessage();
           }}
         >
           SUBMIT
