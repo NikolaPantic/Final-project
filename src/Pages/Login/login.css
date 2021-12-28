@@ -3,44 +3,42 @@
   align-items: center;
   justify-content: center;
   height: 80vh;
-
-  
 }
 
-
-.login-content{
+.login-content {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-height:30%;
-  
+  height: 30%;
 }
 
-
-.login-message{
-  color:red;
+.login-message {
+  color: red;
   font-size: 130%;
 }
 
-
-.login-field{
-
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-text-align: center;
-font-size: 200%;
-
+.login-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 200%;
 }
 
-.login-input{
-
-height:30px;
-
+.login-input {
+  height: 30px;
 }
 
-.login-button{
-
- padding: 10px 15px;
+.login-button {
+  padding: 10px 30px;
+  background-color: var(--buttonPink);
+  color: var(--whiteGray);
+  border: 1px solid var(--whiteGray);
+  transition: 0.1s ease;
+}
+.login-button:hover {
+  background-color: var(--headerColor);
+  border: 1px solid var(--whiteGray);
+  cursor: pointer;
 }
