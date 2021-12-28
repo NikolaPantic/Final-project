@@ -1,3 +1,12 @@
-.search{
-    height:50px;
+.search input {
+  padding: 10px;
+}
+
+.search input:focus-visible,
+.search input:hover {
+  outline: none;
+}
+
+.search input:focus {
+  box-shadow: 1px 1px 2px var(--lightGray);
 }
