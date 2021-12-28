@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./phasethree.css";
 import { Dino } from "../../App";
+import { useHistory } from "react-router-dom";
 
 function PhaseThree(props) {
   const dino = useContext(Dino);
@@ -8,6 +9,12 @@ function PhaseThree(props) {
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
+
+  let history = useHistory();
+
+  function goToReportPage() {
+    history.push("/reportpage");
+  }
 
   date = year + "-" + month + "-" + day;
 
@@ -37,6 +44,11 @@ function PhaseThree(props) {
           status: status,
           note: notes,
         }),
+      }).then((response) => {
+        if (response.status >= 200 && response.status < 300) {
+          dino.setIsValid(!dino.isValid);
+          goToReportPage();
+        }
       });
     } else setMessage(true);
   };
@@ -104,7 +116,14 @@ function PhaseThree(props) {
         >
           BACK
         </button>
-        <button onClick={setNewReport}>SUBMIT</button>
+        <button
+          onClick={() => {
+            setNewReport();
+            // goToReportPage();
+          }}
+        >
+          SUBMIT
+        </button>
       </div>
     </div>
   );

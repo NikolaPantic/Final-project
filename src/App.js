@@ -21,6 +21,7 @@ function App() {
   const [reportinfo, setReportInfo] = useState({});
   const [reportid, setReportID] = useState(null);
   const [searchInput, setSearchinput] = useState("");
+  const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -41,7 +42,7 @@ function App() {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, []);
+  }, [isValid]);
 
   return (
     <div className="app">
@@ -56,6 +57,8 @@ function App() {
             candidates,
             reportid,
             searchInput,
+            isValid,
+            setIsValid,
             setModalPerson,
             setReportInfo,
             setToken,

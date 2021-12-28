@@ -36,6 +36,7 @@ function ReportPage() {
                 }).then(() => {
                   info.setReports(info.reports);
                 });
+                info.setIsValid(!info.isValid);
                 showDeleteModal(false);
               }}
             >
