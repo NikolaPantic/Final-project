@@ -6,7 +6,7 @@ import "./homepage.css";
 import { Link } from "react-router-dom";
 import { Dino } from "../../App";
 
-export const Cardimg = createContext();
+
 
 function HomePage() {
   const x = useContext(Dino);

@@ -70,7 +70,7 @@ function SinglePage(props) {
             </div>
             <div className="person-report">
               <h1>Reports</h1>
-              {candReport.length===0 ? (
+              {candReport.length === 0 ? (
                 <div className="alert-message">There are no reports yet</div>
               ) : (
                 <table>
@@ -109,7 +109,14 @@ function SinglePage(props) {
                       </td>
                       <td className="statuses">
                         {e.status}
-                        <button>eye</button>
+                        <button
+                          onClick={() => {
+                            x.setModal(true);
+                            x.setReportInfo(e);
+                          }}
+                        >
+                          eye
+                        </button>
                       </td>
                     </tr>
                   ))}

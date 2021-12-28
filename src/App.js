@@ -20,8 +20,7 @@ function App() {
   const [modalperson, setModalPerson] = useState("");
   const [reportinfo, setReportInfo] = useState({});
   const [reportid, setReportID] = useState(null);
-  const [singleperson, setSinglePerson] = useState("");
-  const [singlecandidatereports, setSingleCandidateReports] = useState([]);
+ 
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
