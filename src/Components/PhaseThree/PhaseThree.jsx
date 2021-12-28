@@ -53,6 +53,12 @@ function PhaseThree(props) {
     } else setMessage(true);
   };
 
+  const setErrorMessage = () => {
+    if (interviewdate === "" || status === "Select" || notes === "")
+      setMessage(true);
+    else setMessage(false);
+  };
+
   return (
     <div className={props.phase === "three show" ? "three show" : "three hide"}>
       <div className="phase-three-select-info">
@@ -62,7 +68,10 @@ function PhaseThree(props) {
             type="date"
             required
             max={date}
-            onChange={(e) => setInterviewDate(e.target.value)}
+            onChange={(e) => {
+              setInterviewDate(e.target.value);
+              setErrorMessage();
+            }}
           />
         </div>
         <div className="phase field">
@@ -85,7 +94,10 @@ function PhaseThree(props) {
             name="status"
             className="select-status "
             required
-            onChange={(e) => setStatus(e.target.value)}
+            onChange={(e) => {
+              setStatus(e.target.value);
+              setErrorMessage();
+            }}
           >
             <option value="Select">Select</option>
             <option value="Passed">Passed</option>
@@ -100,7 +112,10 @@ function PhaseThree(props) {
           rows="10"
           className="text-area"
           required
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={(e) => {
+            setNotes(e.target.value);
+            setErrorMessage();
+          }}
         ></textarea>
 
         <p className="login-message">
@@ -119,7 +134,7 @@ function PhaseThree(props) {
         <button
           onClick={() => {
             setNewReport();
-            // goToReportPage();
+            setErrorMessage();
           }}
         >
           SUBMIT
