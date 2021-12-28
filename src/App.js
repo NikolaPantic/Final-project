@@ -7,29 +7,63 @@ import ReportPage from "./Pages/ReportPage/ReportPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./app.css";
 export const Dino = createContext();
+
 function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [token, setToken] = useState(
-    sessionStorage.getItem("token") ? sessionStorage.getItem("token") : null
+    sessionStorage.getItem("token") !== "undefined"
+      ? sessionStorage.getItem("token")
+      : null
   );
+  const [modal, setModal] = useState(false);
+  const [modalperson, setModalPerson] = useState("");
+  const [reportinfo, setReportInfo] = useState({});
+  const [singleperson, setSinglePerson] = useState("");
+  const [singlecandidatereports, setSingleCandidateReports] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
-      .then((res) => setCandidates(res));
-  }, [token]);
+      .then((res) =>
+        setCandidates(
+          res.map((e, i) => {
+            return {
+              ...e,
+              avatar: `https://randomuser.me/api/portraits/women/${i + 25}.jpg`,
+            };
+          })
+        )
+      );
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, [token]);
+  }, []);
 
   return (
     <div className=".app">
       <Switch>
-        <Dino.Provider value={{ token, candidates, setToken }}>
+        <Dino.Provider
+          value={{
+            modal,
+            reportinfo,
+            modalperson,
+            singlecandidatereports,
+            singleperson,
+            token,
+            reports,
+            candidates,
+            setModalPerson,
+            setSingleCandidateReports,
+            setSinglePerson,
+            setReportInfo,
+            setToken,
+            setModal,
+          }}
+        >
           <Route exact path="/">
             <HomePage></HomePage>
           </Route>

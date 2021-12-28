@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./singlereport.css";
 
 function SingleReport() {
