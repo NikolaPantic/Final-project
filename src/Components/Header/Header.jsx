@@ -17,15 +17,32 @@ function Header() {
       <Link to="/">
         <img className="header-logo" src={tr} alt="logo"></img>
       </Link>
+
+
+     
       {properties.token === null ? (
         <Link to="/login">
-          <button>Login</button>
+          <button className="login-button">Login</button>
         </Link>
-      ) : (
+      ) : ( <div className="header-buttons">
+       <div className="report-buttons">
+       <Link to='/reportpage'>
+        <button className="report-button">Reports</button>
+        </Link>
+
+        <Link to='/createreport'>
+        <button className="report-button">CreateReport</button>
+        </Link>
+        </div>
         <Link to="/">
           <button onClick={logout}>Logout</button>
         </Link>
+        </div>
       )}
+
+
+    
+     
     </div>
   );
 }

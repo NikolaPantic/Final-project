@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./search.css";
 
 function Search(props) {
@@ -8,7 +8,7 @@ function Search(props) {
         type="search"
         placeholder="Search..."
         onChange={(e) => {
-          props.searchItems(e.target.value);
+          props.setSearchinput(e.target.value);
         }}
       ></input>
     </div>

@@ -6,17 +6,21 @@ import SinglePage from "./Pages/SinglePage/SinglePage";
 import ReportPage from "./Pages/ReportPage/ReportPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./app.css";
-
 export const Dino = createContext();
 
 function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [token, setToken] = useState(
-    sessionStorage.getItem("token") ? sessionStorage.getItem("token") : null
+    sessionStorage.getItem("token") !== "undefined"
+      ? sessionStorage.getItem("token")
+      : null
   );
   const [modal, setModal] = useState(false);
-  const [singleCandidate, setSingleCandidate] = useState("");
+  const [modalperson, setModalPerson] = useState("");
+  const [reportinfo, setReportInfo] = useState({});
+  const [singleperson, setSinglePerson] = useState("");
+  const [singlecandidatereports, setSingleCandidateReports] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -26,7 +30,7 @@ function App() {
           res.map((e, i) => {
             return {
               ...e,
-              avatar: `https://randomuser.me/api/portraits/men/${i + 19}.jpg`,
+              avatar: `https://randomuser.me/api/portraits/women/${i + 25}.jpg`,
             };
           })
         )
@@ -42,9 +46,26 @@ function App() {
   return (
     <div className=".app">
       <Switch>
-        <Dino.Provider value={{ reports, token, candidates, setToken }}>
+        <Dino.Provider
+          value={{
+            modal,
+            reportinfo,
+            modalperson,
+            singlecandidatereports,
+            singleperson,
+            token,
+            reports,
+            candidates,
+            setModalPerson,
+            setSingleCandidateReports,
+            setSinglePerson,
+            setReportInfo,
+            setToken,
+            setModal,
+          }}
+        >
           <Route exact path="/">
-            <HomePage singleCandidate={setSingleCandidate}></HomePage>
+            <HomePage></HomePage>
           </Route>
 
           <Route path="/login">
@@ -58,7 +79,7 @@ function App() {
           </Route>
 
           <Route path="/candidate/:id">
-            <SinglePage reports={reports}></SinglePage>
+            <SinglePage></SinglePage>
           </Route>
 
           <Route path="/createreport">
