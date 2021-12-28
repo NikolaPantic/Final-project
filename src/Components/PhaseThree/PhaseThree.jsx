@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./phasethree.css";
-import { Phasecontext } from "../../Pages/CreateReport/CreateReport.jsx";
 import { Dino } from "../../App";
 
 function PhaseThree(props) {
@@ -13,16 +12,18 @@ function PhaseThree(props) {
   date = year + "-" + month + "-" + day;
 
   const [message, setMessage] = useState(false);
-  // const [interviewdate, setInterviewDate] = useState("");
-  // const [interviewphase, setInterviewPhase] = useState("CV");
-  // const [status, setStatus] = useState("Select");
-  // const [notes, setNotes] = useState("");
+
+  const [interviewdate, setInterviewDate] = useState("");
+  const [interviewphase, setInterviewPhase] = useState("CV");
+  const [status, setStatus] = useState("Select");
+  const [notes, setNotes] = useState("");
+
 
   const setNewReport = () => {
     if (
-      dino.interviewdate !== "" &&
-      dino.status !== "Select" &&
-      dino.notes !== ""
+      interviewdate !== "" &&
+      status !== "Select" &&
+      notes !== ""
     ) {
       fetch("http://localhost:3333/api/reports", {
         method: "POST",
@@ -32,14 +33,14 @@ function PhaseThree(props) {
           Authorization: `Bearer ${dino.token}`,
         },
         body: JSON.stringify({
-          candidateId: dino.idcreate,
-          candidateName: dino.namecreate,
-          companyId: dino.companyID,
-          companyName: dino.companyname,
-          interviewDate: dino.interviewdate,
-          phase: dino.interviewphase,
-          status: dino.status,
-          note: dino.notes,
+          candidateId: props.idcreate,
+          candidateName: props.namecreate,
+          companyId: props.companyID,
+          companyName: props.companyname,
+          interviewDate: interviewdate,
+          phase: interviewphase,
+          status: status,
+          note: notes,
         }),
       });
     } else setMessage(true);
@@ -54,7 +55,7 @@ function PhaseThree(props) {
             type="date"
             required
             max={date}
-            onChange={(e) => dino.setInterviewDate(e.target.value)}
+            onChange={(e) => setInterviewDate(e.target.value)}
           />
         </div>
         <div className="phase field">
@@ -63,7 +64,7 @@ function PhaseThree(props) {
             name="phase"
             className="select-phase "
             required
-            onChange={(e) => dino.setInterviewPhase(e.target.value)}
+            onChange={(e) => setInterviewPhase(e.target.value)}
           >
             <option value="CV">CV</option>
             <option value="HR">HR</option>
@@ -77,7 +78,7 @@ function PhaseThree(props) {
             name="status"
             className="select-status "
             required
-            onChange={(e) => dino.setStatus(e.target.value)}
+            onChange={(e) => setStatus(e.target.value)}
           >
             <option value="Select">Select</option>
             <option value="Passed">Passed</option>
@@ -92,7 +93,7 @@ function PhaseThree(props) {
           rows="10"
           className="text-area"
           required
-          onChange={(e) => dino.setNotes(e.target.value)}
+          onChange={(e) => setNotes(e.target.value)}
         ></textarea>
 
         <p className="login-message">

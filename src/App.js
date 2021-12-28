@@ -19,15 +19,6 @@ function App() {
   const [modal, setModal] = useState(false);
   const [modalperson, setModalPerson] = useState("");
   const [reportinfo, setReportInfo] = useState({});
-
-  const [namecreate, setNameCreate] = useState("");
-  const [idcreate, setIDCreate] = useState(null);
-  const [companyname, setCompanyName] = useState("");
-  const [companyID, setCompanyID] = useState(null);
-  const [interviewdate, setInterviewDate] = useState("");
-  const [interviewphase, setInterviewPhase] = useState("CV");
-  const [status, setStatus] = useState("Select");
-  const [notes, setNotes] = useState("");
   const [reportid, setReportID] = useState(null);
 
   useEffect(() => {
@@ -53,23 +44,7 @@ function App() {
             token,
             reports,
             candidates,
-            interviewdate,
-            interviewphase,
-            status,
-            notes,
-            companyID,
-            companyname,
-            namecreate,
-            idcreate,
             reportid,
-            setNameCreate,
-            setIDCreate,
-            setCompanyID,
-            setCompanyName,
-            setInterviewDate,
-            setInterviewPhase,
-            setStatus,
-            setNotes,
             setModalPerson,
             setReportInfo,
             setToken,

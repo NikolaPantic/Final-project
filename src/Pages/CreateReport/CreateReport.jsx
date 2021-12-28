@@ -11,6 +11,11 @@ function CreateReport() {
 
   const [phase, setPhase] = useState("one show");
 
+  const [namecreate, setNameCreate] = useState("");
+  const [idcreate, setIDCreate] = useState(null);
+  const [companyname, setCompanyName] = useState("");
+  const [companyID, setCompanyID] = useState(null);
+
   return (
     <div className="create-reports">
       <Header></Header>
@@ -47,9 +52,27 @@ function CreateReport() {
           </div>
         </div>
         <div className="create-reports-phases">
-          <PhaseOne phase={phase} setPhase={setPhase}></PhaseOne>
-          <PhaseTwo phase={phase} setPhase={setPhase}></PhaseTwo>
-          <PhaseThree phase={phase} setPhase={setPhase}></PhaseThree>
+          <PhaseOne
+            phase={phase}
+            setPhase={setPhase}
+            namecreate={namecreate}
+            setNameCreate={setNameCreate}
+            setIDCreate={setIDCreate}
+          ></PhaseOne>
+          <PhaseTwo
+            phase={phase}
+            setPhase={setPhase}
+            setCompanyName={setCompanyName}
+            setCompanyID={setCompanyID}
+          ></PhaseTwo>
+          <PhaseThree
+            phase={phase}
+            setPhase={setPhase}
+            namecreate={namecreate}
+            idcreate={idcreate}
+            companyname={companyname}
+            companyID={companyID}
+          ></PhaseThree>
         </div>
       </div>
     </div>

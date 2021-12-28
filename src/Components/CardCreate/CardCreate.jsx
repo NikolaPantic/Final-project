@@ -8,8 +8,8 @@ function CardCreate(props) {
     <div
       className="card-create"
       onClick={() => {
-        dino.setNameCreate(props.name);
-        dino.setIDCreate(props.id);
+        props.setNameCreate(props.name);
+        props.setIDCreate(props.id);
       }}
     >
       <div className="card-create-image">

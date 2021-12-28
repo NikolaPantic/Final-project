@@ -22,8 +22,8 @@ function PhaseTwo(props) {
             className="company-name"
             key={e.id}
             onClick={() => {
-              dino.setCompanyName(e.name);
-              dino.setCompanyID(e.id);
+              props.setCompanyName(e.name);
+              props.setCompanyID(e.id);
             }}
           >
             {e.name}
