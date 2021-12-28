@@ -1,51 +1,42 @@
-.report-page-container{
-width: 80%;
-margin:auto;
-    
+.report-page-container {
+  width: 80%;
+  margin: auto;
 }
 
-.header{
-    margin-bottom: 50px;
+.header {
+  margin-bottom: 50px;
 }
 
-
-
-
-
-.delete-modal{
-display: flex;
-justify-content: center;
-align-items: center;
-position: fixed;
-height: 100%;
-width:100%;
-top:0;
-background-color: rgba(0, 0, 0, 0.4);
+.delete-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.delete-modal-hide{
-    display: none;
+.delete-modal-hide {
+  display: none;
 }
-.delete-content{
-    padding:30px;
-    width:30%;
-    height:20%;
-background-color: white;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-text-align: center;
-}
-
-.delete-buttons{
-
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-width:100%;
-
+.delete-content {
+  padding: 30px;
+  width: 30%;
+  height: 20%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }
 
-
+.delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}

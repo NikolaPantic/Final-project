@@ -5,17 +5,15 @@ import Login from "./Pages/Login/Login";
 import SinglePage from "./Pages/SinglePage/SinglePage";
 import ReportPage from "./Pages/ReportPage/ReportPage";
 import { Route, Switch, Redirect } from "react-router-dom";
+
 import "./app.css";
+
 export const Dino = createContext();
 
 function App() {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
-  const [token, setToken] = useState(
-    sessionStorage.getItem("token") !== "undefined"
-      ? sessionStorage.getItem("token")
-      : null
-  );
+  const [token, setToken] = useState(sessionStorage.getItem("token") !== "undefined" ? sessionStorage.getItem("token") : null);
   const [modal, setModal] = useState(false);
   const [modalperson, setModalPerson] = useState("");
   const [reportinfo, setReportInfo] = useState({});
@@ -75,8 +73,7 @@ function App() {
             setToken,
             setModal,
             setReportID,
-          }}
-        >
+          }}>
           <Route exact path="/">
             <HomePage></HomePage>
           </Route>
