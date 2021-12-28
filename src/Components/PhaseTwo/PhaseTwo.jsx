@@ -1,21 +1,46 @@
-import React from "react";
-import "./phasetwo.css";
+import React, { useContext, useEffect, useState } from "react";
+import { Dino } from "../../App";
 import Search from "../../Components/Search/Search.jsx";
+import "./phasetwo.css";
 
-function PhaseTwo() {
+function PhaseTwo(props) {
+  const dino = useContext(Dino);
+  const [companies, setCompanies] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3333/api/companies")
+      .then((res) => res.json())
+      .then((res) => setCompanies(res));
+  }, []);
+
   return (
-    <div className="phase-two">
+    <div className={props.phase === "two show" ? "two show" : "two hide"}>
       <Search></Search>
       <div className="company-lists">
-          <h3 className="company-name">BIT</h3>
-          <h3 className="company-name">BIT</h3>
-          <h3 className="company-name">BIT</h3>
-          <h3 className="company-name">BIT</h3>
-          <h3 className="company-name">BIT</h3>
+        {companies.map((e) => (
+          <h3
+            className="company-name"
+            key={e.id}
+            onClick={() => {
+              props.setCompanyName(e.name);
+              props.setCompanyID(e.id);
+            }}
+          >
+            {e.name}
+          </h3>
+        ))}
       </div>
       <div className="phase-two-buttons">
-        <button>BACK</button>
-        <button>NEXT</button>
+        <button onClick={() => props.setPhase("one show")}>BACK</button>
+        <button
+          onClick={() =>
+            dino.companyname !== ""
+              ? props.setPhase("three show")
+              : props.setPhase("two show")
+          }
+        >
+          NEXT
+        </button>
       </div>
     </div>
   );

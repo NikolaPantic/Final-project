@@ -1,9 +1,10 @@
-.phase-one {
+.one{
+  padding-left: 50px;
   display: flex;
-  flex-direction: column;
   align-items: flex-end;
-  width: 100%;
 }
+
+
 .card-create-wrap {
   width: 100%;
   display: flex;

@@ -19,8 +19,10 @@ function App() {
   const [modal, setModal] = useState(false);
   const [modalperson, setModalPerson] = useState("");
   const [reportinfo, setReportInfo] = useState({});
+  const [reportid, setReportID] = useState(null);
   const [singleperson, setSinglePerson] = useState("");
   const [singlecandidatereports, setSingleCandidateReports] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -41,27 +43,26 @@ function App() {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, []);
+  }, [reports]);
+
 
   return (
-    <div className=".app">
+    <div className="app">
       <Switch>
         <Dino.Provider
           value={{
             modal,
             reportinfo,
             modalperson,
-            singlecandidatereports,
-            singleperson,
             token,
             reports,
             candidates,
+            reportid,
             setModalPerson,
-            setSingleCandidateReports,
-            setSinglePerson,
             setReportInfo,
             setToken,
             setModal,
+            setReportID,
           }}
         >
           <Route exact path="/">

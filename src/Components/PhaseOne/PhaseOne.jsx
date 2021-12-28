@@ -1,16 +1,36 @@
-import React from "react";
-import "./phaseone.css";
+import React, { useContext } from "react";
 import CardCreate from "../../Components/CardCreate/CardCreate.jsx";
 import Search from "../../Components/Search/Search.jsx";
+import "./phaseone.css";
+import { Dino } from "../../App";
 
-function PhaseOne() {
+function PhaseOne(props) {
+  const dino = useContext(Dino);
+
   return (
-    <div className="phase-one">
+    <div className={props.phase === "one show" ? "one show" : "one hide"}>
       <Search></Search>
       <div className="card-create-wrap">
-        <CardCreate></CardCreate>
+        {dino.candidates.map((e) => (
+          <CardCreate
+            key={e.id}
+            id={e.id}
+            name={e.name}
+            setNameCreate={props.setNameCreate}
+            email={e.email}
+            setIDCreate={props.setIDCreate}
+          ></CardCreate>
+        ))}
       </div>
-      <button>NEXT</button>
+      <button
+        onClick={() => {
+          props.namecreate !== ""
+            ? props.setPhase("two show")
+            : props.setPhase("one show");
+        }}
+      >
+        NEXT
+      </button>
     </div>
   );
 }

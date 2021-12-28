@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./cardcreate.css";
+import { Dino } from "../../App";
 
-function CardCreate() {
+function CardCreate(props) {
+  const dino = useContext(Dino);
   return (
-    <div className="card-create">
+    <div
+      className="card-create"
+      onClick={() => {
+        props.setNameCreate(props.name);
+        props.setIDCreate(props.id);
+      }}
+    >
       <div className="card-create-image">
         <img></img>
       </div>
       <div className="card-create-info">
-        <h4>blaaaa</h4>
-        <p>njaaaa</p>
+        <h4>{props.name}</h4>
+        <p>{props.email.toLowerCase()}</p>
       </div>
     </div>
   );
