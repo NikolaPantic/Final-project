@@ -10,7 +10,6 @@ import { Dino } from "../../App";
 
 function HomePage() {
   const x = useContext(Dino);
-  const [searchInput, setSearchinput] = useState("");
   const [filteredCandidates, setFilteredCandidates] = useState([]);
 
   useEffect(() => setFilteredCandidates(x.candidates), [x.candidates]);
@@ -23,16 +22,16 @@ function HomePage() {
           <h1>Candidates</h1>
           <Search
             candidates={filteredCandidates}
-            setSearchinput={setSearchinput}
+            setSearchinput={x.setSearchinput}
           ></Search>
         </div>
         <div className="card-wrapper">
           {filteredCandidates
             .filter((e) => {
-              if (searchInput === "") {
+              if (x.searchInput === "") {
                 return e;
               } else if (
-                e.name.toLowerCase().includes(searchInput.toLowerCase())
+                e.name.toLowerCase().includes(x.searchInput.toLowerCase())
               ) {
                 return e;
               }

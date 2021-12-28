@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Header from "../../Components/Header/Header.jsx";
 import Search from "../../Components/Search/Search.jsx";
 import SingleReport from "../../Components/SingleReport/SingleReport.jsx";
@@ -9,13 +9,16 @@ import { Dino } from "../../App";
 
 function ReportPage() {
   const info = useContext(Dino);
-  const [reportinfo, setReportInfo] = useState({});
   const [deletemodal, showDeleteModal] = useState(false);
+  const [filteredreports, setFilteredReports] = useState([]);
+
+  useEffect(() => setFilteredReports(info.reports), [info.reports]);
 
   return (
     <div className="report-page">
       <Header></Header>
-      <Modal reportinfo={reportinfo}></Modal>
+
+      <Modal></Modal>
 
       <div className={deletemodal ? "delete-modal" : "delete-modal-hide"}>
         <div className="delete-content">
@@ -50,14 +53,33 @@ function ReportPage() {
       </div>
       <div className="report-page-container">
         <Search></Search>
-
-        {info.reports.map((e) => (
-          <SingleReport
-            showDeleteModal={showDeleteModal}
-            setReportInfo={setReportInfo}
-            e={e}
-          ></SingleReport>
-        ))}
+        {filteredreports
+          .filter((e) => {
+            if (info.searchInput === "") {
+              return e;
+            } else if (
+              e.candidateName
+                .toLowerCase()
+                .includes(info.searchInput.toLowerCase()) ||
+              e.companyName
+                .toLowerCase()
+                .includes(info.searchInput.toLowerCase()) ||
+              e.status.toLowerCase().includes(info.searchInput.toLowerCase()) ||
+              new Date(e.interviewDate)
+                .toLocaleDateString("en-UK")
+                .split("/")
+                .join(".")
+                .includes(info.searchInput)
+            ) {
+              return e;
+            }
+          })
+          .map((e) => (
+            <SingleReport
+              showDeleteModal={showDeleteModal}
+              e={e}
+            ></SingleReport>
+          ))}
       </div>
     </div>
   );

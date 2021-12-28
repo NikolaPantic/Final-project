@@ -1,6 +1,4 @@
-
 import React, { useContext } from "react";
-
 
 import "./singlereport.css";
 import { Dino } from "../../App";

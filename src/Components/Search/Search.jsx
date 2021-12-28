@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./search.css";
-
-function Search(props) {
+import { Dino } from "../../App";
+function Search() {
+  const info = useContext(Dino);
   return (
-
     <div className="search">
       <input
         type="search"
         placeholder="Search..."
         onChange={(e) => {
-          props.setSearchinput(e.target.value);
+          info.setSearchinput(e.target.value);
         }}
       ></input>
     </div>
