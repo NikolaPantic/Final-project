@@ -1,14 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import PhaseOne from "../../Components/PhaseOne/PhaseOne.jsx";
 import PhaseTwo from "../../Components/PhaseTwo/PhaseTwo.jsx";
 import PhaseThree from "../../Components/PhaseThree/PhaseThree.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import "./createreport.css";
-import { Dino } from "../../App";
 
 function CreateReport() {
-  const dino = useContext(Dino);
-
   const [phase, setPhase] = useState("one show");
 
   const [namecreate, setNameCreate] = useState("");
@@ -46,9 +43,9 @@ function CreateReport() {
           </div>
           <div className="create-reports-info">
             <p>{phase !== "one show" ? "Candidate:" : " "} </p>
-            <h3>{phase !== "one show" ? dino.namecreate : " "}</h3>
+            <h3>{phase !== "one show" ? namecreate : " "}</h3>
             <p>{phase === "three show" ? "Company name:" : " "}</p>
-            <h3>{phase === "three show" ? dino.companyname : " "}</h3>
+            <h3>{phase === "three show" ? companyname : " "}</h3>
           </div>
         </div>
         <div className="create-reports-phases">
@@ -64,6 +61,8 @@ function CreateReport() {
             setPhase={setPhase}
             setCompanyName={setCompanyName}
             setCompanyID={setCompanyID}
+            setNameCreate={setNameCreate}
+            companyname={companyname}
           ></PhaseTwo>
           <PhaseThree
             phase={phase}
@@ -72,6 +71,7 @@ function CreateReport() {
             idcreate={idcreate}
             companyname={companyname}
             companyID={companyID}
+            setCompanyName={setCompanyName}
           ></PhaseThree>
         </div>
       </div>

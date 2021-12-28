@@ -18,13 +18,8 @@ function PhaseThree(props) {
   const [status, setStatus] = useState("Select");
   const [notes, setNotes] = useState("");
 
-
   const setNewReport = () => {
-    if (
-      interviewdate !== "" &&
-      status !== "Select" &&
-      notes !== ""
-    ) {
+    if (interviewdate !== "" && status !== "Select" && notes !== "") {
       fetch("http://localhost:3333/api/reports", {
         method: "POST",
         headers: {
@@ -101,7 +96,14 @@ function PhaseThree(props) {
         </p>
       </div>
       <div className="phase-three-buttons">
-        <button onClick={() => props.setPhase("two show")}>BACK</button>
+        <button
+          onClick={() => {
+            props.setPhase("two show");
+            props.setCompanyName("");
+          }}
+        >
+          BACK
+        </button>
         <button onClick={setNewReport}>SUBMIT</button>
       </div>
     </div>

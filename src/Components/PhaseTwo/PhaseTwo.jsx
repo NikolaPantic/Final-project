@@ -44,10 +44,17 @@ function PhaseTwo(props) {
           ))}
       </div>
       <div className="phase-two-buttons">
-        <button onClick={() => props.setPhase("one show")}>BACK</button>
+        <button
+          onClick={() => {
+            props.setPhase("one show");
+            props.setNameCreate("");
+          }}
+        >
+          BACK
+        </button>
         <button
           onClick={() =>
-            dino.companyname !== ""
+            props.companyname !== ""
               ? props.setPhase("three show")
               : props.setPhase("two show")
           }
