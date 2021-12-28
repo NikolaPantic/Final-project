@@ -23,7 +23,6 @@ function App() {
   const [singleperson, setSinglePerson] = useState("");
   const [singlecandidatereports, setSingleCandidateReports] = useState([]);
 
-
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
@@ -43,8 +42,7 @@ function App() {
     fetch("http://localhost:3333/api/reports")
       .then((res) => res.json())
       .then((res) => setReports(res));
-  }, [reports]);
-
+  }, []);
 
   return (
     <div className="app">
@@ -79,9 +77,7 @@ function App() {
             )}
           </Route>
 
-          <Route path="/candidate/:id">
-            <SinglePage></SinglePage>
-          </Route>
+          <Route path="/candidate/:id" component={SinglePage}></Route>
 
           <Route path="/createreport">
             {token != null ? (
