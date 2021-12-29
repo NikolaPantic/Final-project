@@ -10,7 +10,7 @@
 }
 
 .modal-content {
-  max-width: 70%;
+  max-width: 60%;
   background-color: var(--whiteGray);
   color: var(--headerColor);
   padding: 20px;
