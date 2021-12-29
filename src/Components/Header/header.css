@@ -26,3 +26,16 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.header .login-button {
+  padding: 10px 30px;
+  background-color: var(--buttonPink);
+  color: var(--whiteGray);
+  border: 1px solid var(--buttonPink);
+}
+
+.header .login-button:hover {
+  cursor: pointer;
+  background-color: var(--headerColor);
+  color: var(--buttonPink);
+}

@@ -68,7 +68,7 @@
   margin-bottom: 30px;
 }
 
-.login-buttons .login-button:hover {
+ .login-button:hover {
   background-color: rgba(253, 28, 99, 0.8);
   border: 1px solid var(--buttonPink);
   cursor: pointer;
