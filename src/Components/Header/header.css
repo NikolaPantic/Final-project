@@ -17,13 +17,12 @@
 .header-buttons {
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .report-buttons {
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
@@ -39,3 +38,38 @@
   background-color: var(--headerColor);
   color: var(--buttonPink);
 }
+
+.report-page .header {
+  justify-content: initial;
+}
+
+.report-page .header a:first-child {
+  width: 40%;
+}
+
+.report-page .header .header-buttons {
+  width: 60%;
+}
+
+.report-page .header .header-buttons a button {
+  padding: 5px 10px;
+  background-color: var(--buttonPink);
+  color: var(--whiteGray);
+  border: 1px solid var(--whiteGray);
+}
+
+.report-page .header .header-buttons a:hover button {
+  background-color: rgba(253, 28, 99, 0.8);
+  cursor: pointer;
+  color: var(--whiteGray);
+}
+
+.report-page .header .header-buttons a:hover {
+  background-color: var(--headerColor);
+}
+
+/* .report-page .header-buttons .report-buttons a:last-child button:hover {
+  background-color: var(--headerColor);
+  border: 1px solid var(--buttonPink);
+  color: var(--buttonPink);
+} */

@@ -68,6 +68,10 @@
   .person-data div:nth-child(3) h2 {
     font-size: 1rem;
   }
+
+  .report-page .header .header-buttons a button {
+    padding: 10px 30px;
+  }
 }
 
 /*  Extra large devices (large desktops, 1200px and up) */
