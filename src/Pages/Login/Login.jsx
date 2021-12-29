@@ -24,7 +24,9 @@ function Login() {
       .then((res) => {
         setResponse(res);
         sessionStorage.setItem("token", res.accessToken);
-        sessionStorage.getItem("token") === "undefined" ? x.setToken(null) : x.setToken(sessionStorage.getItem("token"));
+        sessionStorage.getItem("token") === "undefined"
+          ? x.setToken(null)
+          : x.setToken(sessionStorage.getItem("token"));
       });
     // .then((res) => sessionStorage.setItem("token", res.accessToken))
     // .then(() => {
@@ -73,16 +75,17 @@ function Login() {
         </p>
 
         <div className="login-buttons">
-          <Link to="/">
-            <button className="login-button">BACK</button>
-          </Link>
           <button
             className="login-button"
             onClick={() => {
               loginButton();
-            }}>
+            }}
+          >
             LOG IN
           </button>
+          <Link to="/">
+            <button className="login-button">HOME PAGE</button>
+          </Link>
         </div>
       </div>
     </div>

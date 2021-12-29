@@ -20,6 +20,7 @@
 .login-field input {
   outline: none;
   padding: 10px 20px;
+  width: 100%;
 }
 
 .login-message {
@@ -38,9 +39,13 @@
 .login-buttons a {
   text-align: center;
   width: 50%;
-  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
+}
+.login-buttons a .login-button {
+  background-color: var(--headerColor);
+  margin-bottom: 0;
+  border: 1px solid var(--headerColor);
 }
 .login-buttons a:hover {
   background-color: var(--whiteGray);
@@ -49,23 +54,23 @@
   outline: none;
 }
 .login-buttons a .login-button:hover {
-  color: var(--buttonPink);
+  color: var(--whiteGray);
+  background-color: rgba(34, 40, 49, 0.8);
+  border: 1px solid var(--headerColor);
 }
 
-.login-button {
+.login-buttons .login-button {
   padding: 10px 30px;
   background-color: var(--buttonPink);
   color: var(--whiteGray);
-  border: 1px solid var(--whiteGray);
+  border: 1px solid var(--buttonPink);
   transition: 0.1s ease;
+  margin-bottom: 30px;
 }
 
-.login-buttons .login-button:first-child {
-  background-color: var(--headerColor);
-  columns: var(--whiteGray);
-}
-.login-button:hover {
-  background-color: var(--headerColor);
-  border: 1px solid var(--whiteGray);
+ .login-button:hover {
+  background-color: rgba(253, 28, 99, 0.8);
+  border: 1px solid var(--buttonPink);
   cursor: pointer;
+  color: var(--whiteGray);
 }

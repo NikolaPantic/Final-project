@@ -90,4 +90,8 @@
   .person-image {
     max-width: 70%;
   }
+
+  .modal-show .modal-content {
+    max-width: 40%;
+  }
 }

@@ -107,14 +107,13 @@ function SinglePage(props) {
                           .join(".")}
                       </td>
                       <td className="statuses">
-                        {e.status}
+                        <p>{e.status}</p>
                         <button
                           onClick={() => {
                             x.setModal(true);
                             x.setReportInfo(e);
                           }}
                         >
-                          {/* eye */}
                           <svg
                             stroke="currentColor"
                             fill="currentColor"
