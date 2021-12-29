@@ -1,5 +1,8 @@
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  .person-image-and-data .person-image-div {
+    width: 50%;
+  }
 }
 
 /*  Medium devices (tablets, 768px and up) */
@@ -24,10 +27,47 @@
     width: 46%;
     margin: 2%;
   }
+
+  .person-image-and-data .person-image-div {
+    width: 40%;
+  }
 }
 
 /*  Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .single-page-container .person-image-and-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-direction: row;
+    margin-bottom: 50px;
+    box-shadow: 1px 1px 3px var(--lightGray);
+  }
+  .person-image-and-data .person-image-div {
+    max-width: 25%;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .person-image {
+    max-width: 75%;
+  }
+  .person-image-and-data .person-data {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    height: 100%;
+    background-color: var(--headerColor);
+  }
+  .person-data .person-data-field {
+    margin-bottom: 0;
+    width: 50%;
+  }
+
+  .person-data div:nth-child(3) h2 {
+    font-size: 1rem;
+  }
 }
 
 /*  Extra large devices (large desktops, 1200px and up) */
@@ -45,5 +85,9 @@
   }
   .card-name {
     font-size: 1.2rem;
+  }
+
+  .person-image {
+    max-width: 70%;
   }
 }
