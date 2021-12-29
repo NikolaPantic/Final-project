@@ -1,33 +1,55 @@
 .loginpage {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
+  height: 100vh;
+}
+.login-content {
+  margin: auto;
+  box-shadow: 2px 2px 3px 2px var(--lightGray);
+  padding: 50px 100px 80px;
+  text-align: center;
+  min-width: 530px;
 }
 
-.login-content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 30%;
+.login-field:last-child {
+  margin-bottom: 20px;
+}
+.login-field p {
+  font-size: 2rem;
+  color: var(--headerColor);
+}
+.login-field input {
+  outline: none;
+  padding: 10px 20px;
 }
 
 .login-message {
-  color: red;
-  font-size: 130%;
-}
-
-.login-field {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  color: var(--buttonPink);
+  font-size: 1rem;
+  min-height: 50px;
+  line-height: 50px;
   text-align: center;
-  font-size: 200%;
+  vertical-align: middle;
 }
-
-.login-input {
-  height: 30px;
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.login-buttons a {
+  text-align: center;
+  width: 50%;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-buttons a:hover {
+  background-color: var(--whiteGray);
+}
+.login-buttons a:focus-visible {
+  outline: none;
+}
+.login-buttons a .login-button:hover {
+  color: var(--buttonPink);
 }
 
 .login-button {
@@ -36,6 +58,11 @@
   color: var(--whiteGray);
   border: 1px solid var(--whiteGray);
   transition: 0.1s ease;
+}
+
+.login-buttons .login-button:first-child {
+  background-color: var(--headerColor);
+  columns: var(--whiteGray);
 }
 .login-button:hover {
   background-color: var(--headerColor);

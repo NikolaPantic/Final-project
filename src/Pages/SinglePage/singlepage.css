@@ -91,6 +91,7 @@ td button {
 td button svg {
   color: var(--lightGray);
   font-size: large;
+  cursor: pointer;
 }
 
 td button:hover svg {
