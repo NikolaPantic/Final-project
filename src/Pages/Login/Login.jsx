@@ -4,9 +4,11 @@ import "./login.css";
 import { Dino } from "../../App";
 
 function Login() {
+  const x = useContext(Dino);
+
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
-  const x = useContext(Dino);
+  
   const [response, setResponse] = useState("");
 
   const loginButton = () => {

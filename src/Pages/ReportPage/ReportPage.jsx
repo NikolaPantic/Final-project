@@ -10,6 +10,7 @@ import { Dino } from "../../App";
 function ReportPage() {
   const info = useContext(Dino);
   const [deletemodal, showDeleteModal] = useState(false);
+  
   const [filteredreports, setFilteredReports] = useState([]);
 
   useEffect(() => setFilteredReports(info.reports), [info.reports]);

@@ -10,8 +10,11 @@ export const Dino = createContext();
 
 function App() {
   const [candidates, setCandidates] = useState([]);
+
   const [reports, setReports] = useState([]);
+  
   const [token, setToken] = useState(sessionStorage.getItem("token") !== "undefined" ? sessionStorage.getItem("token") : null);
+  
   const [modal, setModal] = useState(false);
   const [reportinfo, setReportInfo] = useState({});
 
@@ -19,6 +22,7 @@ function App() {
 
   const [modalperson, setModalPerson] = useState("");
   const [reportid, setReportID] = useState(null);
+  
   const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
