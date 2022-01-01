@@ -19,7 +19,6 @@ function PhaseThree(props) {
   date = year + "-" + month + "-" + day;
 
   const [message, setMessage] = useState(false);
-  const[badresponse, setBadResponse]=useState('')
 
   const [interviewdate, setInterviewDate] = useState("");
   const [interviewphase, setInterviewPhase] = useState("CV");
@@ -51,7 +50,6 @@ function PhaseThree(props) {
           goToReportPage();
         }
       })
-      .catch(res=>setBadResponse(res));
     } else setMessage(true);
   };
 
@@ -119,7 +117,6 @@ function PhaseThree(props) {
         <p className="login-message">
           {message ? "All fields are required!" : ""}
         </p>
-        <p>{badresponse}</p>
       </div>
       <div className="phase-three-buttons">
         <button
