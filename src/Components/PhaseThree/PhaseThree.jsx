@@ -19,6 +19,7 @@ function PhaseThree(props) {
   date = year + "-" + month + "-" + day;
 
   const [message, setMessage] = useState(false);
+  const[badresponse, setBadResponse]=useState('')
 
   const [interviewdate, setInterviewDate] = useState("");
   const [interviewphase, setInterviewPhase] = useState("CV");
@@ -49,7 +50,8 @@ function PhaseThree(props) {
           dino.setIsValid(!dino.isValid);
           goToReportPage();
         }
-      });
+      })
+      .catch(res=>setBadResponse(res));
     } else setMessage(true);
   };
 
@@ -60,8 +62,8 @@ function PhaseThree(props) {
           <p>Interview date</p>
           <input
             type="date"
-            required
             max={date}
+            value={interviewdate}
             onChange={(e) => {
               setInterviewDate(e.target.value);
               setMessage(false);
@@ -73,6 +75,7 @@ function PhaseThree(props) {
           <select
             name="phase"
             className="select-phase "
+            value={interviewphase}
             required
             onChange={(e) => setInterviewPhase(e.target.value)}
           >
@@ -88,6 +91,7 @@ function PhaseThree(props) {
             name="status"
             className="select-status "
             required
+            value={status}
             onChange={(e) => {
               setStatus(e.target.value);
               setMessage(false);
@@ -115,6 +119,7 @@ function PhaseThree(props) {
         <p className="login-message">
           {message ? "All fields are required!" : ""}
         </p>
+        <p>{badresponse}</p>
       </div>
       <div className="phase-three-buttons">
         <button

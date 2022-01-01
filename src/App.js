@@ -77,7 +77,6 @@ function App() {
               <Login />
             ) : (
               <Redirect to="/reportpage">
-                <ReportPage></ReportPage>
               </Redirect>
             )}
           </Route>
@@ -89,7 +88,6 @@ function App() {
               <CreateReport></CreateReport>
             ) : (
               <Redirect to="/login">
-                <Login />
               </Redirect>
             )}
           </Route>
@@ -99,7 +97,6 @@ function App() {
               <ReportPage />
             ) : (
               <Redirect to="/login">
-                <Login />
               </Redirect>
             )}
           </Route>

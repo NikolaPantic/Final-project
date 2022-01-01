@@ -74,25 +74,13 @@ function SinglePage(props) {
               ) : (
                 <table>
                   <tr>
-                    <th
-                    // onClick={() => {
-                    //   candReport.sort();
-                    // }}
-                    >
+                    <th>
                       Company
                     </th>
-                    <th
-                    // onClick={() => {
-                    //   candReport.sort();
-                    // }}
-                    >
+                    <th>
                       Interview Date
                     </th>
-                    <th
-                    // onClick={() => {
-                    //   candReport.sort();
-                    // }}
-                    >
+                    <th>
                       Status
                     </th>
                   </tr>
