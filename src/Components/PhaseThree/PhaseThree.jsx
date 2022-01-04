@@ -50,6 +50,7 @@ function PhaseThree(props) {
           goToReportPage();
         }
       })
+      .catch(alert("Something went wrong. Please try again later."))
     } else setMessage(true);
   };
 
