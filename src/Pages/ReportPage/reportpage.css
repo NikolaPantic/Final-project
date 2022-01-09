@@ -29,15 +29,14 @@
   display: none;
 }
 .delete-content {
-  padding: 30px;
+  padding: 40px;
   width: 30%;
-  height: 20%;
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   text-align: center;
+}
+.delete-content div:first-child {
+  margin-bottom: 40px;
+  color: var(--buttonPink);
 }
 
 .delete-buttons {
@@ -47,6 +46,21 @@
   align-items: center;
   width: 100%;
 }
+.delete-buttons button {
+  padding: 10px 10px;
+  min-width: 60px;
+  background-color: var(--headerColor);
+  color: var(--whiteGray);
+  border: none;
+}
+.delete-buttons button:last-child {
+  background-color: var(--buttonPink);
+  color: var(--whiteGray);
+}
+/* .delete-buttons button:hover {
+  color: var(--buttonPink);
+} */
+
 .report-page .header-buttons a button {
   width: 150px;
 }

@@ -1,6 +1,9 @@
 .search input {
   padding: 10px;
 }
+.search::-webkit-search-cancel-button {
+  background-color: var(--buttonPink);
+}
 
 .search input:focus-visible,
 .search input:hover {

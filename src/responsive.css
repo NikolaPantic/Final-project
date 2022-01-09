@@ -58,6 +58,20 @@
   }
   .report-page .single-report {
     display: flex;
+    text-align: left !important;
+  }
+
+  .single-report-wide-div {
+    min-width: 30%;
+  }
+  .single-report-narrow-div {
+    min-width: 13%;
+  }
+  .report-date {
+    min-width: 20%;
+  }
+  .single-report-buttons {
+    min-width: 7%;
   }
 }
 
