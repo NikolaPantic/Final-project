@@ -1,50 +1,46 @@
-.create-reports{
-  height:100vh;
+.create-reports {
+  height: 100vh;
 }
 
 .create-reports-container {
   display: flex;
-  width:80%;
-height:40vh;
+  width: 80%;
   margin: 0 auto;
-  display:flex;
+  display: flex;
   align-items: center;
-  
 }
 .create-reports-stages-and-info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 20%;
-  height:100%;
+  height: 100%;
   padding-right: 30px auto;
   border-right: 1px solid black;
-
 }
 
-.create-reports-stages{
-font-size: 120%;
-height:50%;
-display: flex;
-flex-direction: column;
-justify-content: center;
+.create-reports-stages {
+  font-size: 120%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.create-reports-info{
-height:50%;
-padding-top: 20px;
-width:80%;
-border-top: 1px solid black;
+.create-reports-info {
+  height: 50%;
+  padding-top: 20px;
+  width: 80%;
+  border-top: 1px solid black;
 }
 
 .create-reports-phases {
   width: 80%;
   display: flex;
   align-items: center;
-  height:100%;
+  height: 100%;
   padding-left: 50px;
 }
-
 
 .hide {
   display: none;

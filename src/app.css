@@ -10,7 +10,9 @@
 }
 body {
   background-color: var(--whiteGray);
-  scrollbar-gutter: stable both-edges;
+  /* scrollbar-gutter: stable both-edges; */
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 a {
   text-decoration: none;

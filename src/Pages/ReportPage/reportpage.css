@@ -1,6 +1,17 @@
 .report-page-container {
-  width: 80%;
+  width: 90%;
   margin: auto;
+}
+
+.report-page .header-logo {
+  max-width: 100%;
+}
+.report-page .header {
+  margin-bottom: 30px;
+}
+.report-page .search {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .delete-modal {
@@ -35,4 +46,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+}
+.report-page .header-buttons a button {
+  width: 150px;
 }
