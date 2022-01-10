@@ -172,8 +172,9 @@
   .create-reports-stages-and-info {
     min-width: 20%;
   }
-  .create-reports-stages div {
-    margin-bottom: 15px;
+
+  .create-reports-info {
+    margin-bottom: 0;
   }
   .one {
     text-align: right !important;
