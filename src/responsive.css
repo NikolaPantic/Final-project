@@ -165,6 +165,7 @@
 
   .create-reports-container {
     display: flex;
+    justify-content: space-between;
   }
   .create-reports-stages {
     font-size: 1rem;
@@ -175,6 +176,9 @@
 
   .create-reports-info {
     margin-bottom: 0;
+  }
+  .create-reports-phases {
+    min-width: 75%;
   }
   .one {
     text-align: right !important;

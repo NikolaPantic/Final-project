@@ -30,6 +30,10 @@
 .create-reports-info {
   height: 50%;
   margin-bottom: 20px;
+  padding: 20px 0;
+}
+.create-reports-info h3 {
+  color: var(--buttonPink);
 }
 
 .hide {

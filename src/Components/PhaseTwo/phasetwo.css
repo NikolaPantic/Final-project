@@ -15,20 +15,19 @@
 
 .company-lists {
   width: 100%;
-  border: 1px solid grey;
+  margin-bottom: 20px;
+  background-color: var(--headerColor);
+  color: var(--whiteGray);
 }
 
 .company-name {
-  border-top: 1px solid grey;
-  padding:10px;
+  border: 1px solid var(--lightGray);
+  padding: 10px;
 }
 
-.company-name:hover{
-
-background-color: rgba(128, 128, 128, 0.4);
-}
-
-.company-name:active{
-background-color: rgba(172, 255, 47, 0.4);
-
+.company-name:active,
+.company-name:hover,
+.company-name:focus {
+  background-color: var(--buttonPink);
+  color: var(--whiteGray);
 }
