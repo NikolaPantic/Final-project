@@ -82,6 +82,19 @@
   .single-report-buttons {
     min-width: 7%;
   }
+
+  .phase-three-select-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .phase-three-select-info .field,
+  .phase-three-select-info .field {
+    width: 30%;
+  }
+  .phase-three-select-info .field input,
+  .phase-three-select-info .field select {
+    width: 100% !important;
+  }
 }
 
 /*  Large devices (desktops, 992px and up) */
