@@ -1,12 +1,9 @@
-.one{
-  padding-left: 50px;
-  display: flex;
-  align-items: flex-end;
+.one {
+  text-align: center;
 }
 
-
-.card-create-wrap {
+/* .card-create-wrap {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-}
+} */

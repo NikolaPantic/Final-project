@@ -3,10 +3,8 @@
   margin: auto;
 }
 
-.report-page .header-logo {
-  max-width: 100%;
-}
-.report-page .header {
+.report-page .header,
+.create-reports .header {
   margin-bottom: 30px;
 }
 .report-page .search {
@@ -61,6 +59,6 @@
   color: var(--buttonPink);
 } */
 
-.report-page .header-buttons a button {
+.header-buttons a button {
   width: 150px;
 }

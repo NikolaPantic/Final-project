@@ -19,27 +19,9 @@ function CreateReport() {
       <div className="create-reports-container">
         <div className="create-reports-stages-and-info">
           <div className="create-reports-stages">
-            <div>
-              {phase === "one show" ? (
-                <b>1 Select Candidate</b>
-              ) : (
-                "1 Select Candidate"
-              )}
-            </div>
-            <div>
-              {phase === "two show" ? (
-                <b>2 Select Company</b>
-              ) : (
-                "2 Select Company"
-              )}
-            </div>
-            <div>
-              {phase === "three show" ? (
-                <b>3 Fill Report Details</b>
-              ) : (
-                "3 Fill Report Details"
-              )}
-            </div>
+            <div>{phase === "one show" ? <b>1. Select Candidate</b> : "1. Select Candidate"}</div>
+            <div>{phase === "two show" ? <b>2. Select Company</b> : "2. Select Company"}</div>
+            <div>{phase === "three show" ? <b>3. Fill Report Details</b> : "3. Fill Report Details"}</div>
           </div>
           <div className="create-reports-info">
             <p>{phase !== "one show" ? "Candidate:" : " "} </p>
@@ -49,30 +31,9 @@ function CreateReport() {
           </div>
         </div>
         <div className="create-reports-phases">
-          <PhaseOne
-            phase={phase}
-            setPhase={setPhase}
-            namecreate={namecreate}
-            setNameCreate={setNameCreate}
-            setIDCreate={setIDCreate}
-          ></PhaseOne>
-          <PhaseTwo
-            phase={phase}
-            setPhase={setPhase}
-            setCompanyName={setCompanyName}
-            setCompanyID={setCompanyID}
-            setNameCreate={setNameCreate}
-            companyname={companyname}
-          ></PhaseTwo>
-          <PhaseThree
-            phase={phase}
-            setPhase={setPhase}
-            namecreate={namecreate}
-            idcreate={idcreate}
-            companyname={companyname}
-            companyID={companyID}
-            setCompanyName={setCompanyName}
-          ></PhaseThree>
+          <PhaseOne phase={phase} setPhase={setPhase} namecreate={namecreate} setNameCreate={setNameCreate} setIDCreate={setIDCreate}></PhaseOne>
+          <PhaseTwo phase={phase} setPhase={setPhase} setCompanyName={setCompanyName} setCompanyID={setCompanyID} setNameCreate={setNameCreate} companyname={companyname}></PhaseTwo>
+          <PhaseThree phase={phase} setPhase={setPhase} namecreate={namecreate} idcreate={idcreate} companyname={companyname} companyID={companyID} setCompanyName={setCompanyName}></PhaseThree>
         </div>
       </div>
     </div>

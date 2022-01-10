@@ -3,20 +3,17 @@
 }
 
 .create-reports-container {
-  display: flex;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
+  overflow: hidden;
+}
+.create-reports .search {
+  margin-bottom: 20px;
 }
 .create-reports-stages-and-info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 20%;
-  height: 100%;
-  padding-right: 30px auto;
-  border-right: 1px solid black;
 }
 
 .create-reports-stages {
@@ -25,21 +22,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-bottom: 1px solid var(--lightGray);
 }
 
 .create-reports-info {
   height: 50%;
-  padding-top: 20px;
-  width: 80%;
-  border-top: 1px solid black;
-}
-
-.create-reports-phases {
-  width: 80%;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding-left: 50px;
 }
 
 .hide {
@@ -48,4 +35,20 @@
 
 .show {
   display: block;
+}
+
+.create-reports-phases button {
+  padding: 10px 20px;
+  background-color: var(--headerColor);
+  color: var(--whiteGray);
+  border: 1px solid var(--headerColor);
+  transition: 0.1s ease-in;
+}
+.create-reports-phases button:hover {
+  background-color: var(--buttonPink);
+  border: 1px solid var(--buttonPink);
+}
+
+.create-reports-phases {
+  margin-bottom: 50px;
 }

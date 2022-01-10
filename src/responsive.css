@@ -47,6 +47,15 @@
     width: 46%;
     margin: 2%;
   }
+  .card-create-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card-create {
+    width: 46%;
+    margin: 1%;
+  }
 
   .person-image-and-data .person-image-div {
     width: 40%;
@@ -80,7 +89,7 @@
   .header-buttons {
     justify-content: space-between;
   }
-  .report-page .header-buttons a button {
+  .header-buttons a button {
     width: 200px !important;
   }
   .single-page-container .person-image-and-data {
@@ -117,11 +126,15 @@
     font-size: 1rem;
   }
 
-  .report-page .header .header-buttons a button {
+  .header .header-buttons a button {
     padding: 10px 30px;
   }
-  .report-page .header-logo {
+  .header-logo {
     max-width: 60%;
+  }
+
+  .card-create {
+    width: 30%;
   }
 }
 
@@ -148,5 +161,43 @@
 
   .modal-show .modal-content {
     max-width: 40%;
+  }
+
+  .create-reports-container {
+    display: flex;
+  }
+  .create-reports-stages {
+    font-size: 1rem;
+  }
+  .create-reports-stages-and-info {
+    min-width: 20%;
+  }
+  .create-reports-stages div {
+    margin-bottom: 15px;
+  }
+  .one {
+    text-align: right !important;
+  }
+  .card-create {
+    width: 47%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  div.card-create-image {
+    width: 20%;
+  }
+  div.card-create-image img {
+    width: 70%;
+  }
+  .card-create-info {
+    text-align: left;
+    width: 80%;
+  }
+  .card-create-info p {
+    font-size: 1rem !important;
   }
 }
