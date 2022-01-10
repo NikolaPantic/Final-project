@@ -3,10 +3,30 @@
   .person-image-and-data .person-image-div {
     width: 50%;
   }
+  .report-buttons a {
+    margin-bottom: 10px;
+  }
+  .report-page .header-logo {
+    max-width: 80%;
+  }
+  .report-page .search {
+    text-align: left !important;
+  }
 }
 
 /*  Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .header-buttons {
+    display: flex;
+  }
+  .report-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  .report-buttons a {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
   .home-page-container .card-wrapper {
     flex-direction: row;
   }
@@ -27,14 +47,63 @@
     width: 46%;
     margin: 2%;
   }
+  .card-create-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card-create {
+    width: 46%;
+  }
 
   .person-image-and-data .person-image-div {
     width: 40%;
+  }
+  .statuses {
+    display: flex;
+    justify-content: space-between !important;
+    text-align: left !important;
+  }
+  .report-page .single-report {
+    display: flex;
+    text-align: left !important;
+  }
+
+  .single-report-wide-div {
+    min-width: 30%;
+  }
+  .single-report-narrow-div {
+    min-width: 13%;
+  }
+  .report-date {
+    min-width: 20%;
+  }
+  .single-report-buttons {
+    min-width: 7%;
+  }
+
+  .phase-three-select-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .phase-three-select-info .field,
+  .phase-three-select-info .field {
+    width: 30%;
+  }
+  .phase-three-select-info .field input,
+  .phase-three-select-info .field select {
+    width: 100% !important;
   }
 }
 
 /*  Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .header-buttons {
+    justify-content: space-between;
+  }
+  .header-buttons a button {
+    width: 200px !important;
+  }
   .single-page-container .person-image-and-data {
     display: flex;
     align-items: center;
@@ -69,8 +138,15 @@
     font-size: 1rem;
   }
 
-  .report-page .header .header-buttons a button {
+  .header .header-buttons a button {
     padding: 10px 30px;
+  }
+  .header-logo {
+    max-width: 60%;
+  }
+
+  .card-create {
+    width: 30%;
   }
 }
 
@@ -97,5 +173,48 @@
 
   .modal-show .modal-content {
     max-width: 40%;
+  }
+
+  .create-reports-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .create-reports-stages {
+    font-size: 1rem;
+  }
+  .create-reports-stages-and-info {
+    min-width: 20%;
+  }
+
+  .create-reports-info {
+    margin-bottom: 0;
+  }
+  .create-reports-phases {
+    min-width: 75%;
+  }
+  .one {
+    text-align: right !important;
+  }
+  .card-create {
+    width: 47%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  div.card-create-image {
+    width: 20%;
+  }
+  div.card-create-image img {
+    width: 70%;
+  }
+  .card-create-info {
+    text-align: left;
+    width: 80%;
+  }
+  .card-create-info p {
+    font-size: 1rem !important;
   }
 }

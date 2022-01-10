@@ -1,27 +1,32 @@
-.three {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-}
-
 .text-area {
   resize: none;
   width: 100%;
+  background-color: var(--headerColor);
+  color: var(--whiteGray);
+  padding: 5px;
 }
-.phase-three-select-info {
-  display: flex;
-  justify-content: space-between;
+.text-area:focus {
+  color: var(--whiteGray);
+  outline: 1px solid var(--buttonPink);
 }
-
-.field {
-  width: 30%;
-}
-
 
 .phase-three-buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.phase-three-select-info .field input,
+.phase-three-select-info .field select {
+  width: 50%;
+  background-color: var(--headerColor);
+  color: var(--whiteGray);
+  padding: 5px;
+}
+.phase-three-select-info .field input:focus,
+.phase-three-select-info .field select:focus {
+  outline: 1px solid var(--buttonPink);
+}
+
+.select-status option:active {
+  background-color: var(--buttonPink);
 }
