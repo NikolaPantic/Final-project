@@ -20,7 +20,7 @@
   width: 50%;
   background-color: var(--headerColor);
   color: var(--whiteGray);
-  padding: 5px;
+  padding: 10px;
 }
 .phase-three-select-info .field input:focus,
 .phase-three-select-info .field select:focus {
@@ -28,5 +28,9 @@
 }
 
 .select-status option:active {
+  background-color: var(--buttonPink);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: var(--buttonPink);
 }
