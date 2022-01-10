@@ -8,7 +8,7 @@ function Login() {
 
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const [response, setResponse] = useState("");
 
   const loginButton = () => {
@@ -24,10 +24,9 @@ function Login() {
       .then((res) => {
         setResponse(res);
         sessionStorage.setItem("token", res.accessToken);
-        sessionStorage.getItem("token") === "undefined"
-          ? x.setToken(null)
-          : x.setToken(sessionStorage.getItem("token"));
+        sessionStorage.getItem("token") === "undefined" ? x.setToken(null) : x.setToken(sessionStorage.getItem("token"));
       });
+
     // .then((res) => sessionStorage.setItem("token", res.accessToken))
     // .then(() => {
     //   sessionStorage.getItem("token") === "undefined"
@@ -38,7 +37,7 @@ function Login() {
 
   return (
     <div className="loginpage">
-      <div className="login-content">
+      <div className="login-content" onKeyPress={(e) => e.key === "Enter" && loginButton()}>
         <div className="login-field">
           <p>Username</p>
           <input
@@ -79,8 +78,7 @@ function Login() {
             className="login-button"
             onClick={() => {
               loginButton();
-            }}
-          >
+            }}>
             LOG IN
           </button>
           <Link to="/">
