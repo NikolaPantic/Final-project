@@ -2,25 +2,20 @@
   border: 1px solid var(--headerColor);
   color: var(--whiteGray);
   background-color: var(--headerColor);
-  margin-bottom: 20px;
   text-align: center;
   padding: 20px 0;
   transition: 0.1s linear;
+  margin: 1%;
 }
 
-.card-create:hover {
-  background-color: var(--buttonPink);
-  border: 1px solid var(--buttonPink);
-}
-
-.card-create:visited,
+.card-create:hover,
 .card-create:active,
 .card-create:focus,
 .card-create:focus-visible,
 .card-create:focus-within,
 .card-create:target {
   background-color: var(--buttonPink) !important;
-  color: white !important;
+  border: 1px solid var(--buttonPink);
 }
 
 .card-create-image img {
@@ -36,4 +31,8 @@
 }
 .card-create-info p {
   font-size: smaller;
+}
+
+.card-create-wrap {
+  margin-bottom: 20px;
 }

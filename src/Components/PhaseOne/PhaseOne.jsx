@@ -7,6 +7,7 @@ import { Dino } from "../../App";
 function PhaseOne(props) {
   const dino = useContext(Dino);
   const [filteredcandidates, setFilteredCandidates] = useState([]);
+
   useEffect(() => setFilteredCandidates(dino.candidates), [dino.candidates]);
 
   return (
@@ -17,31 +18,18 @@ function PhaseOne(props) {
           .filter((e) => {
             if (dino.searchInput === "") {
               return e;
-            } else if (
-              e.name.toLowerCase().includes(dino.searchInput.toLowerCase())
-            ) {
+            } else if (e.name.toLowerCase().includes(dino.searchInput.toLowerCase())) {
               return e;
             }
           })
           .map((e) => (
-            <CardCreate
-              key={e.id}
-              id={e.id}
-              avatar={e.avatar}
-              name={e.name}
-              setNameCreate={props.setNameCreate}
-              email={e.email}
-              setIDCreate={props.setIDCreate}
-            ></CardCreate>
+            <CardCreate key={e.id} id={e.id} avatar={e.avatar} name={e.name} setNameCreate={props.setNameCreate} email={e.email} setIDCreate={props.setIDCreate}></CardCreate>
           ))}
       </div>
       <button
         onClick={() => {
-          props.namecreate !== ""
-            ? props.setPhase("two show")
-            : props.setPhase("one show");
-        }}
-      >
+          props.namecreate !== "" ? props.setPhase("two show") : props.setPhase("one show");
+        }}>
         NEXT
       </button>
     </div>
