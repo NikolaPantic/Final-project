@@ -1,5 +1,5 @@
-.create-reports {
-  height: 100vh;
+.create-reports .header .report-buttons a:last-child {
+  display: none;
 }
 
 .create-reports-container {

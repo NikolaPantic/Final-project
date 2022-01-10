@@ -2,7 +2,9 @@
   width: 90%;
   margin: auto;
 }
-
+.report-page .header .report-buttons a:first-child {
+  display: none;
+}
 .report-page .header,
 .create-reports .header {
   margin-bottom: 30px;
