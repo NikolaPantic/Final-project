@@ -9,11 +9,7 @@
 }
 
 .card-create:hover,
-.card-create:active,
-.card-create:focus,
-.card-create:focus-visible,
-.card-create:focus-within,
-.card-create:target {
+.card-create:active {
   background-color: var(--buttonPink) !important;
   border: 1px solid var(--buttonPink);
 }
