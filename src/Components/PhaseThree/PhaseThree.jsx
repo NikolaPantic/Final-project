@@ -5,10 +5,13 @@ import { useHistory } from "react-router-dom";
 
 function PhaseThree(props) {
   const dino = useContext(Dino);
+ 
   let date = new Date();
   let day = date.getDate();
-  let month = date.getMonth() + 1;
+  let month = date.getMonth()+1;
   let year = date.getFullYear();
+  date = year +"-"+month+"-"+day;
+
 
   let history = useHistory();
 
@@ -16,7 +19,6 @@ function PhaseThree(props) {
     history.push("/reportpage");
   }
 
-  date = year + "-" + month + "-" + day;
 
   const [message, setMessage] = useState(false);
 
@@ -61,8 +63,8 @@ function PhaseThree(props) {
           <p>Interview date</p>
           <input
             type="date"
-            max={date}
             value={interviewdate}
+            max={date}
             onChange={(e) => {
               setInterviewDate(e.target.value);
               setMessage(false);
