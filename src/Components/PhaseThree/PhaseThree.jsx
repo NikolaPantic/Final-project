@@ -47,12 +47,12 @@ function PhaseThree(props) {
           note: notes,
         }),
       }).then((response) => {
-        if (response.status >= 200 && response.status < 300) {
+        if (response.status >= 200 && response.status < 400) {
           dino.setIsValid(!dino.isValid);
           goToReportPage();
         }
       })
-      .catch(alert("Something went wrong. Please try again later."))
+      // .catch(alert("Something went wrong. Please try again later."))
     } else setMessage(true);
   };
 
